@@ -32,6 +32,8 @@ Windows向けには、 `.msi` ファイルが配られているので インス�
 
 古いバージョンの Go言語は削除することになる  
 
+Go言語のインストール先は `C:\Program Files\Go\` とした  
+
 # Step [O1o1o0g2o1o_1o0] Go言語のバージョン確認
 
 👇 以下のカレントディレクトリーから、コマンドを入力してほしい  
@@ -59,13 +61,13 @@ go version go1.19 windows/amd64
 Input:  
 
 ```shell
-go mod init example/hello
+go mod init example/main
 ```
 
 Output:  
 
 ```plaintext
-go: creating new go.mod: module example/hello
+go: creating new go.mod: module example/main
 go: to add module requirements and sums:
         go mod tidy
 ```
@@ -78,7 +80,7 @@ go: to add module requirements and sums:
 ```
 
 ```go
-module example/hello
+module example/main
 
 go 1.19
 ```
@@ -93,16 +95,27 @@ Go言語では フォルダーを、ファイルを小分けにするただの�
 ```plaintext
     📂 kifuwarabe-uec14-practice
     ├── 📄 go.mod
-👉  └── 📄 hello.go
+👉  └── 📄 main.go
 ```
 
 ```go
 package main
 
-import "fmt"
+import (
+	"flag"
+	"fmt"
+)
 
 func main() {
-    fmt.Println("Hello, World!")
+	flag.Parse()
+	// プログラム名
+	var name = flag.Arg(0)
+
+	if name == "hello" {
+		fmt.Println("Hello, World!")
+	} else {
+		fmt.Println("go run . {programName}")
+	}
 }
 ```
 
@@ -112,6 +125,18 @@ Input:
 
 ```shell
 go run .
+```
+
+Output:  
+
+```plaintext
+go run . {programName}
+```
+
+Input:  
+
+```shell
+go run . hello
 ```
 
 Output:  
