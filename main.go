@@ -4,7 +4,6 @@ import (
 	"flag"
 	"fmt"
 
-	"github.com/muzudho/kifuwarabe-uec14-practice/greetings"
 	"rsc.io/quote"
 )
 
@@ -16,8 +15,8 @@ func main() {
 	if name == "hello" { // [O1o1o0g3o0]
 		fmt.Println("Hello, World!")
 
-	} else if name == "hello" { // [O1o1o0g5o2o0]
-		greetings.Hello("Nanashino Gonbee")
+		//} else if name == "hello" { // [O1o1o0g5o2o0]
+		//g.Hello("Nanashino Gonbee")
 
 		// この上に分岐を挟んでいく
 
