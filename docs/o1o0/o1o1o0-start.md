@@ -90,7 +90,7 @@ go 1.19
 Go言語では フォルダーを、ファイルを小分けにするただの入れ物として使うには向いていない。  
 大量のファイルをトップレベルに置いておくことも気にしないことにする  
 
-👇 以下のファイルを新規作成する。  
+👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
     📂 kifuwarabe-uec14-practice
@@ -111,8 +111,11 @@ func main() {
 	// プログラム名
 	var name = flag.Arg(0)
 
-	if name == "hello" {
+	if name == "hello" { // [O1o1o0g3o0]
 		fmt.Println("Hello, World!")
+
+		// ここに分岐を挟んでいく
+
 	} else {
 		fmt.Println("go run . {programName}")
 	}
@@ -146,3 +149,57 @@ Hello, World!
 ```
 
 Go言語を実行する環境は整ったようだ  
+
+# Step [O1o1o0g4o0] クォート
+
+👇 以下の既存ファイルを編集してほしい  
+
+```plaintext
+    📂 kifuwarabe-uec14-practice
+    ├── 📄 go.mod
+👉  └── 📄 main.go
+```
+
+👇 抜粋  
+
+```go
+import (
+	// ...略...
+
+
+	// * 以下を追加する
+	"rsc.io/quote"
+)
+
+
+// ...略...
+
+
+		// ここに分岐を挟んでいく
+
+	// * 以下を追加する
+	} else if name == "quote" { // [O1o1o0g4o0]
+		fmt.Println(quote.Go())
+```
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+Input:  
+
+```shell
+go mod tidy
+go run . quote
+```
+
+Output:  
+
+```plaintext
+Don't communicate by sharing memory, share memory by communicating.
+```
+
+以上のようなメッセージが出てくる。  
+このサンプルプログラムは何をやっているのか分からない。  
+
+# Step [O1o1o0g5o0] あいさつ
+
+📖 [Tutorial: Create a Go module](https://go.dev/doc/tutorial/create-module)  
