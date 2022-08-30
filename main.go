@@ -3,8 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
-	// g "github.com/muzudho/kifuwarabe-uec14-practice/greetings"
-	// "rsc.io/quote"
+
+	"github.com/muzudho/kifuwarabe-uec14-practice/greetings"
+	"rsc.io/quote"
 )
 
 func main() {
@@ -16,12 +17,12 @@ func main() {
 		fmt.Println("Hello, World!")
 
 	} else if name == "hello" { // [O1o1o0g5o2o0]
-		// g.Hello("Nanashino Gonbee")
+		greetings.Hello("Nanashino Gonbee")
 
 		// この上に分岐を挟んでいく
 
 	} else if name == "quote" { // [O1o1o0g4o0]
-		// fmt.Println(quote.Go())
+		fmt.Println(quote.Go())
 
 	} else {
 		fmt.Println("go run . {programName}")

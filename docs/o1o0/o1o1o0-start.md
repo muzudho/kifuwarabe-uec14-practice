@@ -42,6 +42,16 @@ Windows向けには、 `.msi` ファイルが配られているので インス�
 
 Go言語のインストール先は `C:\Program Files\Go\` とした  
 
+# Step [O1o1o0g2o1o_1o_11o0] カレントディレクトリー
+
+Visual Studio Code を開く  
+
+私の場合、以下のディレクトリーへ移動する  
+
+```shell
+cd C:\Users\むずでょ\go\src\github.com\muzudho\kifuwarabe-uec14-practice
+```
+
 # Step [O1o1o0g2o1o_1o0] Go言語のバージョン確認
 
 👇 以下のカレントディレクトリーから、以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
@@ -235,6 +245,16 @@ Hello, World!
 
 Go言語を実行する環境は整ったようだ  
 
+# Step [O1o1o0g4o_1o0] クォート
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+Input:  
+
+```shell
+go get rsc.io/quote
+```
+
 # Step [O1o1o0g4o0] クォート
 
 👇 以下の既存ファイルを編集してほしい  
@@ -413,6 +433,7 @@ import (
 
 ### go.work
 
+📖 [Tutorial: Getting started with multi-module workspaces](https://go.dev/doc/tutorial/workspaces)  
 📖 [VSCodeを開いたときのgoplsのmoduleに関するエラー](https://qiita.com/__tou__tou/items/d0867ed231e8bacd1b9e)  
 📖 [Setting up your workspace](https://github.com/golang/tools/blob/master/gopls/doc/workspace.md)  
 
