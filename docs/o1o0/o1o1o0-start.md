@@ -427,6 +427,107 @@ import (
 		// この上に分岐を挟んでいく
 ```
 
+# Step [O1o1o0g6o0] RESTful API
+
+📖 [Tutorial: Developing a RESTful API with Go and Gin](https://go.dev/doc/tutorial/web-service-gin)  
+
+👇 以下のフォルダーを新規作成してほしい  
+
+```plaintext
+    📂 kifuwarabe-uec14-practice
+👉 	└── 📂 web-service-gin
+```
+
+👇 カレントディレクトリーを移動してほしい
+
+```plaintext
+    📂 kifuwarabe-uec14-practice
+👉 	└── 📂 web-service-gin
+```
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
+cd web-service-gin
+go mod init github.com/muzudho/kifuwarabe-uec14-practice/web-service-gin
+```
+
+👇 以下のファイルが自動生成された  
+
+```plaintext
+    📂 kifuwarabe-uec14-practice
+	└── 📂 web-service-gin
+👉 		└── 📄 go.mod
+```
+
+```plaintext
+module github.com/muzudho/kifuwarabe-uec14-practice/web-service-gin
+
+go 1.19
+```
+
+# Step [O1o1o0g6o1o0] データの作成
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    📂 kifuwarabe-uec14-practice
+	└── 📂 web-service-gin
+ 		├── 📄 go.mod
+👉 		└── 📄 main.go
+```
+
+```go
+package main
+
+import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
+
+// album represents data about a record album.
+type album struct {
+	ID     string  `json:"id"`
+	Title  string  `json:"title"`
+	Artist string  `json:"artist"`
+	Price  float64 `json:"price"`
+}
+
+// albums slice to seed record album data.
+var albums = []album{
+	{ID: "1", Title: "Blue Train", Artist: "John Coltrane", Price: 56.99},
+	{ID: "2", Title: "Jeru", Artist: "Gerry Mulligan", Price: 17.99},
+	{ID: "3", Title: "Sarah Vaughan and Clifford Brown", Artist: "Sarah Vaughan", Price: 39.99},
+}
+
+// getAlbums responds with the list of all albums as JSON.
+func getAlbums(c *gin.Context) {
+	c.IndentedJSON(http.StatusOK, albums)
+}
+
+func main() {
+	router := gin.Default()
+	router.GET("/albums", getAlbums)
+
+	router.Run("localhost:8080")
+}
+```
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
+go get .
+```
+
+必要なパッケージが自動的にダウンロードされるのだろう  
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
+go run .
+```
+
 # 参考にした記事
 
 ## Go言語と Visual Studio Code
