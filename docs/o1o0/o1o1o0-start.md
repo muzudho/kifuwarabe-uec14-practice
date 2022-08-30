@@ -19,6 +19,14 @@ Go言語では ローカルPCのどこにソースを置くかは自分で設定
 
 `C:\Users\むずでょ\go\src\github.com\muzudho\kifuwarabe-uec14-practice`  
 
+以降の文章では、あなたのリポジトリに読み替えてほしい  
+
+# Step [O1o1o0g2o_1o0] Visual Studio Code を使う
+
+がんばって、 `Visual Studio Code` を使えるようにしておいてほしい  
+
+📖 [Visual Studio Code](https://code.visualstudio.com/)  
+
 # Step [O1o1o0g2o0] 公式のサンプルプログラムを真似る
 
 👇 とりあえずGo言語の公式のサンプルプログラムを一通りやろう。  
@@ -36,7 +44,7 @@ Go言語のインストール先は `C:\Program Files\Go\` とした
 
 # Step [O1o1o0g2o1o_1o0] Go言語のバージョン確認
 
-👇 以下のカレントディレクトリーから、コマンドを入力してほしい  
+👇 以下のカレントディレクトリーから、以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
 ```shell
 👉  📂 kifuwarabe-uec14-practice
@@ -54,6 +62,37 @@ Output:
 go version go1.19 windows/amd64
 ```
 
+# Step [O1o1o0g2o1o_1o0] 設定 - go.work ファイル
+
+Visual Studio Code のワークスペースを使いたいので、設定を行う  
+
+📖 [Setting up your workspace](https://github.com/golang/tools/blob/master/gopls/doc/workspace.md)  
+
+👇 以下のカレントディレクトリーから、以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
+👉  📂 kifuwarabe-uec14-practice
+```
+
+Input:  
+
+```shell
+go work init
+go work use tools tools/gopls
+```
+
+👇 すると 以下のファイルが自動生成される  
+
+```shell
+    📂 kifuwarabe-uec14-practice
+👉  └── 📄 go.work
+```
+
+```go
+go 1.19
+
+```
+
 # Step [O1o1o0g2o1o0] モジュール作成
 
 👇 以下のコマンドを入力してほしい  
@@ -61,7 +100,10 @@ go version go1.19 windows/amd64
 Input:  
 
 ```shell
-go mod init example/main
+go mod init github.com/muzudho/kifuwarabe-uec14-practice
+#           --------------------------------------------
+#           1
+# 1. この部分はあなたのレポジトリに合わせて変えてほしい
 ```
 
 Output:  
@@ -76,13 +118,31 @@ go: to add module requirements and sums:
 
 ```shell
     📂 kifuwarabe-uec14-practice
-👉  └── 📄 go.mod
+👉  ├── 📄 go.mod
+	└── 📄 go.work
 ```
 
 ```go
-module example/main
+module github.com/muzudho/kifuwarabe-uec14-practice
 
 go 1.19
+```
+
+また、モジュールを追加したあとには以下のコマンドを入力してほしい  
+
+```shell
+go mod tidy
+```
+
+ソースから推論して必要なセットアップが自動的に行われるだろう  
+
+👇 以下のファイルが自動生成される  
+
+```shell
+    📂 kifuwarabe-uec14-practice
+👉  ├── 📄 go.sum
+  	├── 📄 go.mod
+	└── 📄 go.work
 ```
 
 # Step [O1o1o0g3o0] ハローワールド
@@ -94,7 +154,9 @@ Go言語では フォルダーを、ファイルを小分けにするただの�
 
 ```plaintext
     📂 kifuwarabe-uec14-practice
+  	├── 📄 go.sum
     ├── 📄 go.mod
+	├── 📄 go.work
 👉  └── 📄 main.go
 ```
 
@@ -156,7 +218,9 @@ Go言語を実行する環境は整ったようだ
 
 ```plaintext
     📂 kifuwarabe-uec14-practice
+  	├── 📄 go.sum
     ├── 📄 go.mod
+	├── 📄 go.work
 👉  └── 📄 main.go
 ```
 
@@ -203,3 +267,102 @@ Don't communicate by sharing memory, share memory by communicating.
 # Step [O1o1o0g5o0] あいさつ
 
 📖 [Tutorial: Create a Go module](https://go.dev/doc/tutorial/create-module)  
+
+👇 以下のフォルダーを新規作成してほしい  
+
+```plaintext
+    📂 kifuwarabe-uec14-practice
+👉 	├── 📂 greetings
+  	├── 📄 go.sum
+    ├── 📄 go.mod
+	├── 📄 go.work
+  	└── 📄 main.go
+```
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
+cd greetings
+```
+
+`📂 greetings` へ カレントディレクトリーが移動した  
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+Input:  
+
+```shell
+go mod init github.com/muzudho/kifuwarabe-uec14-practice/greetings
+#           --------------------------------------------
+#           1
+# 1. この部分はあなたのレポジトリに合わせて変えてほしい
+```
+
+👇 以下のファイルが新規作成された  
+
+```plaintext
+    📂 kifuwarabe-uec14-practice
+	├── 📂 greetings
+👉	│	└── 📄 go.mod
+  	├── 📄 go.sum
+    ├── 📄 go.mod
+	├── 📄 go.work
+  	└── 📄 main.go
+```
+
+```go
+module github.com/muzudho/kifuwarabe-uec14-practice/greetings
+
+go 1.19
+```
+
+👇 続けて
+
+Input:  
+
+```shell
+go mod tidy
+```
+
+# Step [O1o1o0g5o1o0] あいさつ
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+    📂 kifuwarabe-uec14-practice
+	├── 📂 greetings
+	│	├── 📄 go.mod
+👉	│	└── 📄 greetings.go
+  	├── 📄 go.sum
+    ├── 📄 go.mod
+	├── 📄 go.work
+  	└── 📄 main.go
+```
+
+```go
+package greetings
+
+import "fmt"
+
+// Hello returns a greeting for the named person.
+func Hello(name string) string {
+	// Return a greeting that embeds the name in a message.
+	message := fmt.Sprintf("Hi, %v. Welcome!", name)
+	return message
+}
+```
+
+# Step [O1o1o0g5o2o0] あいさつ
+
+
+
+# 参考にした記事
+
+## Go言語と Visual Studio Code
+
+### go.work
+
+📖 [VSCodeを開いたときのgoplsのmoduleに関するエラー](https://qiita.com/__tou__tou/items/d0867ed231e8bacd1b9e)  
+📖 [Setting up your workspace](https://github.com/golang/tools/blob/master/gopls/doc/workspace.md)  
+
+おわり
