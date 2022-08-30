@@ -93,6 +93,29 @@ go 1.19
 
 ```
 
+# Step [O1o1o0g2o1o_1o0] 設定 - .gitignore ファイル
+
+👇 以下の既存ファイルを編集（無ければ新規作成）してほしい  
+
+```shell
+    📂 kifuwarabe-uec14-practice
+  	├── 📄 go.work
+👉  └── 📄 .gitignore
+```
+
+例えば冒頭に追加  
+
+```plaintext
+# * ここから、以下を追加
+# (^q^)
+
+go.work
+# * ここまで
+
+
+# ...略...
+```
+
 # Step [O1o1o0g2o1o0] モジュール作成
 
 👇 以下のコマンドを入力してほしい  
@@ -136,7 +159,7 @@ go mod tidy
 
 ソースから推論して必要なセットアップが自動的に行われるだろう  
 
-👇 以下のファイルが自動生成される  
+👇 以下のファイルが自動生成される（コードを書き始めたばかりのときは、無いこともある）  
 
 ```shell
     📂 kifuwarabe-uec14-practice
@@ -176,7 +199,7 @@ func main() {
 	if name == "hello" { // [O1o1o0g3o0]
 		fmt.Println("Hello, World!")
 
-		// ここに分岐を挟んでいく
+		// この上に分岐を挟んでいく
 
 	} else {
 		fmt.Println("go run . {programName}")
@@ -239,11 +262,11 @@ import (
 // ...略...
 
 
-		// ここに分岐を挟んでいく
-
 	// * 以下を追加する
 	} else if name == "quote" { // [O1o1o0g4o0]
 		fmt.Println(quote.Go())
+
+		// この上に分岐を挟んでいく
 ```
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
@@ -292,10 +315,7 @@ cd greetings
 Input:  
 
 ```shell
-go mod init github.com/muzudho/kifuwarabe-uec14-practice/greetings
-#           --------------------------------------------
-#           1
-# 1. この部分はあなたのレポジトリに合わせて変えてほしい
+go mod init greetings
 ```
 
 👇 以下のファイルが新規作成された  
@@ -311,7 +331,7 @@ go mod init github.com/muzudho/kifuwarabe-uec14-practice/greetings
 ```
 
 ```go
-module github.com/muzudho/kifuwarabe-uec14-practice/greetings
+module greetings
 
 go 1.19
 ```
@@ -354,7 +374,38 @@ func Hello(name string) string {
 
 # Step [O1o1o0g5o2o0] あいさつ
 
+👇 以下の既存ファイルを編集してほしい  
 
+```plaintext
+    📂 kifuwarabe-uec14-practice
+	├── 📂 greetings
+	│	├── 📄 go.mod
+	│	└── 📄 greetings.go
+  	├── 📄 go.sum
+    ├── 📄 go.mod
+	├── 📄 go.work
+👉	└── 📄 main.go
+```
+
+```go
+import (
+	// ...略...
+
+
+	// * 以下を追加する
+	g "github.com/muzudho/kifuwarabe-uec14-practice/greetings"
+)
+
+
+// ...略...
+
+
+	// * 以下を追加する
+	} else if name == "hello" { // [O1o1o0g5o2o0]
+		g.Hello("Nanashino Gonbee")
+
+		// この上に分岐を挟んでいく
+```
 
 # 参考にした記事
 

@@ -3,8 +3,8 @@ package main
 import (
 	"flag"
 	"fmt"
-
-	"rsc.io/quote"
+	// g "github.com/muzudho/kifuwarabe-uec14-practice/greetings"
+	// "rsc.io/quote"
 )
 
 func main() {
@@ -15,10 +15,13 @@ func main() {
 	if name == "hello" { // [O1o1o0g3o0]
 		fmt.Println("Hello, World!")
 
-		// ここに分岐を挟んでいく
+	} else if name == "hello" { // [O1o1o0g5o2o0]
+		// g.Hello("Nanashino Gonbee")
+
+		// この上に分岐を挟んでいく
 
 	} else if name == "quote" { // [O1o1o0g4o0]
-		fmt.Println(quote.Go())
+		// fmt.Println(quote.Go())
 
 	} else {
 		fmt.Println("go run . {programName}")
