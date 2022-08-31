@@ -27,6 +27,10 @@ Go言語では ローカルPCのどこにソースを置くかは自分で設定
 
 📖 [Visual Studio Code](https://code.visualstudio.com/)  
 
+# Step [O1o1o0g2o_1o0] Goエクステンションをインストールする
+
+`Visual Studio Code` の `Extensions` から、 `Go` をインストールしておいてほしい  
+
 # Step [O1o1o0g2o0] 公式のサンプルプログラムを真似る
 
 👇 とりあえずGo言語の公式のサンプルプログラムを一通りやろう。  
@@ -136,7 +140,7 @@ Input:
 go mod init github.com/muzudho/kifuwarabe-uec14-practice
 #           --------------------------------------------
 #           1
-# 1. この部分はあなたのレポジトリに合わせて変えてほしい
+# 1. モジュール名。この部分はあなたのレポジトリに合わせて変えてほしい
 ```
 
 Output:  
@@ -412,8 +416,8 @@ import (
 	// ...略...
 
 
-	// * 以下を追加する
-	g "github.com/muzudho/kifuwarabe-uec14-practice/greetings"
+	// * 以下は、ファイルの保存時に Visual Studio Code の Go エクステンションによって自動で補完される
+	"github.com/muzudho/kifuwarabe-uec14-practice/greetings"
 )
 
 
@@ -421,11 +425,23 @@ import (
 
 
 	// * 以下を追加する
-	} else if name == "hello" { // [O1o1o0g5o2o0]
-		g.Hello("Nanashino Gonbee")
+	} else if name == "greetings" { // [O1o1o0g5o2o0]
+		greetings.Hello("Nanashino Gonbee")
 
 		// この上に分岐を挟んでいく
 ```
+
+# Step [O1o1o0g5o2o1o0] あいさつ
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+Input:  
+
+```shell
+go mod tidy
+go run . greetings
+```
+
 
 # Step [O1o1o0g6o0] RESTful API
 
@@ -529,6 +545,12 @@ go run .
 ```
 
 # 参考にした記事
+
+## Go言語
+
+### モジュール
+
+📖 [[Golang] Module](https://dev-yakuza.posstree.com/en/golang/module/)  
 
 ## Go言語と Visual Studio Code
 
