@@ -540,6 +540,52 @@ func GetMessage(name string) string {
 }
 ```
 
+👇 ここでカレントディレクトリーはまだ 📂 `greetings` だとする  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+👉	├── 📂 greetings
+	└── 📂 web-service-gin
+```
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+Input:  
+
+```shell
+go work use .
+```
+
+👇 これにより、以下の既存ファイルが自動で編集された  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	└── 📄 go.mod
+	├── 📂 web-service-gin
+  	├── 📄 .gitignore
+  	├── 📄 go.mod
+  	├── 📄 go.sum
+👉	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+```go
+// ...略...
+
+// * 以下が自動で削除
+// use .
+// * 以下が自動で追加
+use (
+	.
+	./greetings
+)
+```
+
+これにより、 📄 `main.go` から 📄 `greetings/welcome.go` ファイル（パッケージ）にパスを通すことができるようになる  
+
 # Step [O1o1o0g5o2o0] あいさつ
 
 👇 以下の既存ファイルを編集してほしい  
@@ -589,7 +635,7 @@ import (
 	└── 📂 web-service-gin
 ```
 
-👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+👇 そのためのコマンド例  
 
 Input:  
 
@@ -618,13 +664,6 @@ Hi, Nanashino Gonbee. Welcome!
 
 📖 [Tutorial: Developing a RESTful API with Go and Gin](https://go.dev/doc/tutorial/web-service-gin)  
 
-👇 以下のフォルダーを新規作成してほしい  
-
-```plaintext
-    📂 kifuwarabe-uec14-practice
-👉 	└── 📂 web-service-gin
-```
-
 👇 カレントディレクトリーを移動してほしい
 
 ```plaintext
@@ -632,19 +671,36 @@ Hi, Nanashino Gonbee. Welcome!
 👉 	└── 📂 web-service-gin
 ```
 
-👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+👇 そのためのコマンド例  
+
+Input:  
 
 ```shell
 cd web-service-gin
+```
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
 go mod init github.com/muzudho/kifuwarabe-uec14-practice/web-service-gin
 ```
 
 👇 以下のファイルが自動生成された  
 
 ```plaintext
-    📂 kifuwarabe-uec14-practice
-	└── 📂 web-service-gin
-👉 		└── 📄 go.mod
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+👉 	│	└── 📄 go.mod
+  	├── 📄 .gitignore
+  	├── 📄 go.mod
+  	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+	└── 📄 main.go
 ```
 
 ```plaintext
@@ -652,6 +708,47 @@ module github.com/muzudho/kifuwarabe-uec14-practice/web-service-gin
 
 go 1.19
 ```
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
+go work use .
+```
+
+👇 これにより、以下の既存ファイルが自動で編集された  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+ 	│	└── 📄 go.mod
+  	├── 📄 .gitignore
+  	├── 📄 go.mod
+  	├── 📄 go.sum
+👉	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+```go
+// ...略...
+
+// * 以下が自動で削除
+// use (
+// 	   .
+// 	   ./greetings
+// )
+// * 以下が自動で追加
+use (
+	.
+	./greetings
+	./web-service-gin
+)
+```
+
 
 👇 カレントディレクトリーを移動してほしい  
 
@@ -661,44 +758,10 @@ go 1.19
  		└── 📄 go.mod
 ```
 
+👇 そのためのコマンド例  
+
 ```shell
 cd ..
-```
-
-👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
-
-```shell
-go work init web-service-gin
-```
-
-👇 以下のファイルが新規作成される  
-
-```plaintext
-	📂 kifuwarabe-uec14-practice
-	├── 📂 web-service-gin
- 	│	└── 📄 go.mod
-👉	├── 📄 go.work
-👉	└── 📄 go.work.sum
-```
-
-📄 go.work  
-
-```go
-go 1.19
-
-use ./web-service-gin
-```
-
-📄 go.work.sum
-
-```go
-github.com/ugorji/go v1.2.7 h1:qYhyWUUd6WbiM+C6JZAUkIJt/1WrjzNHY9+KCIjVqTo=
-```
-
-👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
-
-```shell
-go work use .
 ```
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
@@ -707,15 +770,60 @@ go work use .
 go mod tidy
 ```
 
+👇 これにより、以下の既存ファイルが自動で編集、または生成された  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+👉	│	├── 📄 go.mod
+👉	│	└── 📄 go.sum
+  	├── 📄 .gitignore
+  	├── 📄 go.mod
+  	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+内容は行数が多いので省略  
+
 # Step [O1o1o0g6o1o0] データの作成
+
+👇 カレントディレクトリーを移動してほしい  
+
+```plaintext
+	📂 kifuwarabe-uec14-practice
+👉	└── 📂 web-service-gin
+```
+
+👇 そのためのコマンド  
+
+```shell
+cd web-service-gin
+```
 
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    📂 kifuwarabe-uec14-practice
-	└── 📂 web-service-gin
- 		├── 📄 go.mod
-👉 		└── 📄 main.go
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+	│	├── 📄 go.mod
+	│	├── 📄 go.sum
+👉 	│	└── 📄 main.go
+  	├── 📄 .gitignore
+  	├── 📄 go.mod
+  	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
 ```
 
 ```go
