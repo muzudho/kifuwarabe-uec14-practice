@@ -376,7 +376,7 @@ go mod tidy
     📂 kifuwarabe-uec14-practice
 	├── 📂 greetings
 	│	├── 📄 go.mod
-👉	│	└── 📄 greetings.go
+👉	│	└── 📄 welcome.go
   	├── 📄 go.sum
     ├── 📄 go.mod
 	├── 📄 go.work
@@ -388,8 +388,8 @@ package greetings
 
 import "fmt"
 
-// Hello returns a greeting for the named person.
-func Hello(name string) string {
+// GetMessage returns a greeting for the named person.
+func GetMessage(name string) string {
 	// Return a greeting that embeds the name in a message.
 	message := fmt.Sprintf("Hi, %v. Welcome!", name)
 	return message
@@ -404,7 +404,7 @@ func Hello(name string) string {
     📂 kifuwarabe-uec14-practice
 	├── 📂 greetings
 	│	├── 📄 go.mod
-	│	└── 📄 greetings.go
+	│	└── 📄 welcome.go
   	├── 📄 go.sum
     ├── 📄 go.mod
 	├── 📄 go.work
@@ -426,7 +426,7 @@ import (
 
 	// * 以下を追加する
 	} else if name == "greetings" { // [O1o1o0g5o2o0]
-		greetings.Hello("Nanashino Gonbee")
+		fmt.Println(greetings.GetMessage("Nanashino Gonbee"))
 
 		// この上に分岐を挟んでいく
 ```
@@ -442,6 +442,11 @@ go mod tidy
 go run . greetings
 ```
 
+Output:  
+
+```shell
+Hi, Nanashino Gonbee. Welcome!
+```
 
 # Step [O1o1o0g6o0] RESTful API
 
@@ -480,6 +485,54 @@ go mod init github.com/muzudho/kifuwarabe-uec14-practice/web-service-gin
 module github.com/muzudho/kifuwarabe-uec14-practice/web-service-gin
 
 go 1.19
+```
+
+👇 カレントディレクトリーを移動してほしい  
+
+```plaintext
+👉	📂 kifuwarabe-uec14-practice
+	└── 📂 web-service-gin
+ 		└── 📄 go.mod
+```
+
+```shell
+cd ..
+```
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
+go work init web-service-gin
+```
+
+👇 以下のファイルが新規作成される  
+
+```plaintext
+	📂 kifuwarabe-uec14-practice
+	├── 📂 web-service-gin
+ 	│	└── 📄 go.mod
+👉	├── 📄 go.work
+👉	└── 📄 go.work.sum
+```
+
+📄 go.work  
+
+```go
+go 1.19
+
+use ./web-service-gin
+```
+
+📄 go.work.sum
+
+```go
+github.com/ugorji/go v1.2.7 h1:qYhyWUUd6WbiM+C6JZAUkIJt/1WrjzNHY9+KCIjVqTo=
+```
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
+go mod tidy
 ```
 
 # Step [O1o1o0g6o1o0] データの作成
@@ -546,11 +599,17 @@ go run .
 
 # 参考にした記事
 
+📖 [Go [O1o1o0] 目指せ！第１４回ＵＥＣ杯コンピューター囲碁大会](https://qiita.com/muzudho1/items/cea62be01f7418bbf150) - この記事  
+
 ## Go言語
 
 ### モジュール
 
 📖 [[Golang] Module](https://dev-yakuza.posstree.com/en/golang/module/)  
+
+### マルチモジュール
+
+📖 [Go 1.18集中連載 Workspacesモードを試してみた](https://future-architect.github.io/articles/20220216a/)  
 
 ## Go言語と Visual Studio Code
 

@@ -17,7 +17,7 @@ func main() {
 		fmt.Println("Hello, World!")
 
 	} else if name == "greetings" { // [O1o1o0g5o2o0]
-		greetings.Hello("Nanashino Gonbee")
+		fmt.Println(greetings.GetMessage("Nanashino Gonbee"))
 
 		// この上に分岐を挟んでいく
 
