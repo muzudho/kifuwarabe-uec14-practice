@@ -532,6 +532,12 @@ github.com/ugorji/go v1.2.7 h1:qYhyWUUd6WbiM+C6JZAUkIJt/1WrjzNHY9+KCIjVqTo=
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
 ```shell
+go work use .
+```
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
 go mod tidy
 ```
 
