@@ -148,7 +148,12 @@ go 1.19
 
 ```
 
-この 📄 `go.work` ファイルは１個だけ作る  
+この 📄 `go.work` ファイルは１個だけ作る。  
+このファイルが置いてあると Go言語は `ワークスペースズ モード` になるらしく、  
+今まで覚えた Go言語の `go run .` コマンドが制限される。制限の解除方法はあとで説明する  
+
+また、せっかく作った 📂 `greetings`、 📂 `greetings\japanese`、 📂 `web-service-gin` だが、  
+まだ ２番目、３番目、４番目のワークスペース にはできない。あとで説明する  
 
 # Step [O1o1o0g2o1o_1o0] 設定 - .gitignore ファイル
 
@@ -233,11 +238,15 @@ go mod tidy
 
 👇 以下のファイルが自動生成される（コードを書き始めたばかりのときは、無いこともある）  
 
-```shell
-    📂 kifuwarabe-uec14-practice
-👉  ├── 📄 go.sum
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 greetings
+	│	└── 📂 japanese
+	├── 📂 web-service-gin
+  	├── 📄 .gitignore
   	├── 📄 go.mod
-	└── 📄 go.work
+👉  ├── 📄 go.sum
+  	└── 📄 go.work
 ```
 
 # Step [O1o1o0g3o0] ハローワールド
@@ -248,10 +257,14 @@ Go言語では フォルダーを、ファイルを小分けにするただの�
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
-    📂 kifuwarabe-uec14-practice
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 greetings
+	│	└── 📂 japanese
+	├── 📂 web-service-gin
+  	├── 📄 .gitignore
+  	├── 📄 go.mod
   	├── 📄 go.sum
-    ├── 📄 go.mod
-	├── 📄 go.work
+  	├── 📄 go.work
 👉  └── 📄 main.go
 ```
 
@@ -284,6 +297,58 @@ func main() {
 Input:  
 
 ```shell
+go work use .
+```
+
+👇 以下のファイルが自動で編集されている  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 greetings
+	│	└── 📂 japanese
+	├── 📂 web-service-gin
+  	├── 📄 .gitignore
+  	├── 📄 go.mod
+  	├── 📄 go.sum
+👉	├── 📄 go.work
+  	└── 📄 main.go
+```
+
+```go
+// ...略...
+
+
+// * 以下の行が自動追加
+use .
+```
+
+📄 `go.work` に `use .` の行が追加されたことで、カレントディレクトリーは Go言語のワークスペースになった。  
+制限のかかっていた `go run .` コマンドが 再び使えるようになる  
+
+👇 以下のファイルが自動生成されている  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 greetings
+	│	└── 📂 japanese
+	├── 📂 web-service-gin
+  	├── 📄 .gitignore
+  	├── 📄 go.mod
+  	├── 📄 go.sum
+	├── 📄 go.work
+👉	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+```go
+github.com/ugorji/go v1.2.7 h1:qYhyWUUd6WbiM+C6JZAUkIJt/1WrjzNHY9+KCIjVqTo=
+```
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+Input:  
+
+```shell
 go run .
 ```
 
@@ -292,6 +357,8 @@ Output:
 ```plaintext
 go run . {programName}
 ```
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
 Input:  
 
