@@ -6,6 +6,15 @@
 
 📖 [目指せ！第１４回ＵＥＣ杯コンピューター囲碁大会☆（＾ｑ＾）＜その１＞](http://grayscale2.dou-jin.com/go/20220829)  
 
+アーキテクチャ:  
+
+| What is           | This is            |
+| ----------------- | ------------------ |
+| OS                | Windows            |
+| Editor            | Visual Studio Code |
+| Program Language  | Go                 |
+| Remote Repository | Git Hub            |
+
 # Step [O1o1o0g1o1o0] ソースの置き場所（リモート）
 
 👇 まず、ソースの置き場所を決めておく  
@@ -15,6 +24,23 @@
 # Step [O1o1o0g1o2o0] ソースの置き場所（ローカル）
 
 Go言語では ローカルPCのどこにソースを置くかは自分で設定して決めておく。  
+サンプルでは　ユーザーホームの下に置いているので、真似る  
+
+👇 以下のコマンドを入力してほしい  
+
+Input:  
+
+```shell
+echo %HOMEPATH%
+```
+
+Output:  
+
+```plaintext
+\Users\むずでょ
+```
+
+ユーザーホームのパスが分かった。この下に `go\src` で始まるディレクトリーを作っていく。  
 私は以下の場所にした  
 
 `C:\Users\むずでょ\go\src\github.com\muzudho\kifuwarabe-uec14-practice`  
@@ -60,7 +86,7 @@ cd C:\Users\むずでょ\go\src\github.com\muzudho\kifuwarabe-uec14-practice
 
 👇 以下のカレントディレクトリーから、以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
-```shell
+```plaintext
 👉  📂 kifuwarabe-uec14-practice
 ```
 
@@ -76,29 +102,44 @@ Output:
 go version go1.19 windows/amd64
 ```
 
-# Step [O1o1o0g2o1o_1o0] 設定 - go.work ファイル
+# Step [O1o1o0g2o1o_1o0] マルチ ワークスペース
 
-Visual Studio Code のワークスペースを使いたいので、設定を行う  
+べつに ワークスペースは１つでいいが、  
+練習で 複数のワークスペースを作れることを示す  
 
-📖 [Setting up your workspace](https://github.com/golang/tools/blob/master/gopls/doc/workspace.md)  
+👇 以下の３つのディレクトリーを新規作成してほしい  
 
-👇 以下のカレントディレクトリーから、以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
-
-```shell
-👉  📂 kifuwarabe-uec14-practice
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+👉	├── 📂 greetings
+👉	│	└── 📂 japanese
+👉	└── 📂 web-service-gin
 ```
+
+👇 カレントディレクトリーは以下の通りとする  
+
+```plaintext
+👉  📂 kifuwarabe-uec14-practice
+	├── 📂 greetings
+	│	└── 📂 japanese
+	└── 📂 web-service-gin
+```
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
 Input:  
 
 ```shell
 go work init
-go work use tools tools/gopls
 ```
 
 👇 すると 以下のファイルが自動生成される  
 
-```shell
-    📂 kifuwarabe-uec14-practice
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 greetings
+	│	└── 📂 japanese
+	├── 📂 web-service-gin
 👉  └── 📄 go.work
 ```
 
@@ -107,14 +148,19 @@ go 1.19
 
 ```
 
+この 📄 `go.work` ファイルは１個だけ作る  
+
 # Step [O1o1o0g2o1o_1o0] 設定 - .gitignore ファイル
 
 👇 以下の既存ファイルを編集（無ければ新規作成）してほしい  
 
-```shell
-    📂 kifuwarabe-uec14-practice
-  	├── 📄 go.work
-👉  └── 📄 .gitignore
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 greetings
+	│	└── 📂 japanese
+	├── 📂 web-service-gin
+👉  ├── 📄 .gitignore
+  	└── 📄 go.work
 ```
 
 例えば冒頭に追加  
@@ -132,7 +178,15 @@ go.work
 
 # Step [O1o1o0g2o1o0] モジュール作成
 
-👇 以下のコマンドを入力してほしい  
+👇 カレントディレクトリーは以下の通りとする  
+
+```plaintext
+👉  📂 kifuwarabe-uec14-practice
+	├── 📂 greetings
+	└── 📂 web-service-gin
+```
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
 Input:  
 
@@ -153,10 +207,14 @@ go: to add module requirements and sums:
 
 👇 すると 以下のファイルが自動生成される  
 
-```shell
-    📂 kifuwarabe-uec14-practice
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 greetings
+	│	└── 📂 japanese
+	├── 📂 web-service-gin
+  	├── 📄 .gitignore
 👉  ├── 📄 go.mod
-	└── 📄 go.work
+  	└── 📄 go.work
 ```
 
 ```go
@@ -613,8 +671,9 @@ go run .
 
 📖 [[Golang] Module](https://dev-yakuza.posstree.com/en/golang/module/)  
 
-### マルチモジュール
+### マルチ ワークスペース
 
+📖 [Setting up your workspace](https://github.com/golang/tools/blob/master/gopls/doc/workspace.md)  
 📖 [Go 1.18集中連載 Workspacesモードを試してみた](https://future-architect.github.io/articles/20220216a/)  
 
 ## Go言語と Visual Studio Code
