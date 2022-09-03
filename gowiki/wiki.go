@@ -40,12 +40,11 @@ func main() {
 		p2, _ := loadPage("TestPage")
 		fmt.Println(string(p2.Body))
 
-	} else if name == "vol2" {
+	} else if name == "vol2" { // [O1o1o0g9o7o_2o0]
 		http.HandleFunc("/", SimpleHandler)
 		log.Fatal(http.ListenAndServe(":8080", nil))
 
-	} else if name == "vol3" {
-
+	} else if name == "vol3" { // [O1o1o0g9o8o0]
 		http.HandleFunc("/view/", ViewHandler)
 		log.Fatal(http.ListenAndServe(":8080", nil))
 

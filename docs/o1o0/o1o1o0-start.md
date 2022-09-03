@@ -1962,11 +1962,6 @@ This is a sample Page.
   	└── 📄 main.go
 ```
 
-
-
-
-
-
 ## Step [O1o1o0g9o7o_1o0] Vol2 プログラム作成 - simple.go
 
 👇 以下のファイルを新規作成してほしい  
@@ -1991,6 +1986,7 @@ This is a sample Page.
 	├── 📂 gowiki
 	│	├── 📄 go.mod
 👉	│	├── 📄 simple.go
+	│	├── 📄 TestPage.txt
 	│	└── 📄 wiki.go
   	├── 📄 .gitignore
  	├── 📄 go.mod
@@ -2044,6 +2040,7 @@ func SimpleHandler(w http.ResponseWriter, r *http.Request) {
 	├── 📂 gowiki
 	│	├── 📄 go.mod
 	│	├── 📄 simple.go
+	│	├── 📄 TestPage.txt
 👉	│	└── 📄 wiki.go
   	├── 📄 .gitignore
  	├── 📄 go.mod
@@ -2060,7 +2057,7 @@ func SimpleHandler(w http.ResponseWriter, r *http.Request) {
 
 
 	// * 以下を追加する
-	} else if name == "vol2" {
+	} else if name == "vol2" { // [O1o1o0g9o7o_2o0]
 		http.HandleFunc("/", SimpleHandler)
 		log.Fatal(http.ListenAndServe(":8080", nil))
 
@@ -2089,11 +2086,19 @@ go run . vol2
 Hi there, I love albums!
 ```
 
+### Step [O1o1o0g9o7o_5o0] Webアクセス
 
+👇 ブラウザを開いてアクセスしてほしい  
 
+📖 [http://localhost:8080/monkeys](http://localhost:8080/monkeys)  
 
+👇 画面に以下のように表示されるだろう  
 
-## Step [O1o1o0g9o7o0] Vol4 プログラム作成
+```plaintext
+Hi there, I love monkeys!
+```
+
+## Step [O1o1o0g9o7o0] Vol3 プログラム作成
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -2116,6 +2121,7 @@ Hi there, I love albums!
  	│	└── 📄 main.go
 	├── 📂 gowiki
 	│	├── 📄 go.mod
+	│	├── 📄 simple.go
 	│	├── 📄 TestPage.txt
 👉	│	├── 📄 view.go
 	│	└── 📄 wiki.go
@@ -2139,7 +2145,10 @@ import (
 
 func ViewHandler(w http.ResponseWriter, r *http.Request) {
 	title := r.URL.Path[len("/view/"):]
-	p, _ := loadPage(title)
+	p, err := loadPage(title)
+	if err != nil {
+		panic(err)
+	}
 	fmt.Fprintf(w, "<h1>%s</h1><div>%s</div>", p.Title, p.Body)
 }
 
@@ -2169,6 +2178,7 @@ func ViewHandler(w http.ResponseWriter, r *http.Request) {
  	│	└── 📄 main.go
 	├── 📂 gowiki
 	│	├── 📄 go.mod
+	│	├── 📄 simple.go
 	│	├── 📄 TestPage.txt
 	│	├── 📄 view.go
 👉	│	└── 📄 wiki.go
@@ -2187,8 +2197,7 @@ func ViewHandler(w http.ResponseWriter, r *http.Request) {
 
 
 	// * 以下を追加する
-	} else if name == "vol4" {
-
+	} else if name == "vol3" { // [O1o1o0g9o8o0]
 		http.HandleFunc("/view/", ViewHandler)
 		log.Fatal(http.ListenAndServe(":8080", nil))
 
@@ -2229,6 +2238,7 @@ go build .
 	├── 📂 gowiki
 	│	├── 📄 go.mod
 👉	│	├── 📄 gowiki.exe
+	│	├── 📄 simple.go
 	│	├── 📄 TestPage.txt
 	│	├── 📄 view.go
 	│	└── 📄 wiki.go
@@ -2248,8 +2258,12 @@ Input:
 
 ```shell
 # Windows
-gowiki.exe vol2
+gowiki.exe vol3
 ```
+
+## Step [O1o1o0g9o11o0] 実行
+
+👇 ブラウザを開いてアクセスしてほしい  
 
 📖 [http://localhost:8080/view/test](http://localhost:8080/view/test)  
 
