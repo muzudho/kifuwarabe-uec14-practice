@@ -1095,12 +1095,16 @@ go work use .
 
 ```plaintext
   	📂 kifuwarabe-uec14-practice
+	├── 📂 generics
+	│	└── 📄 go.mod
 	├── 📂 greetings
 	│	├── 📂 japanese
 	│	├── 📄 go.mod
 	│	└── 📄 welcome.go
 	├── 📂 web-service-gin
- 	│	└── 📄 go.mod
+	│	├── 📄 go.mod
+	│	├── 📄 go.sum
+ 	│	└── 📄 main.go
   	├── 📄 .gitignore
   	├── 📄 go.mod
   	├── 📄 go.sum
@@ -1116,10 +1120,12 @@ go work use .
 // use (
 // 	   .
 // 	   ./greetings
+//     ./web-service-gin
 // )
 // * 以下が自動で追加
 use (
 	.
+	./generics
 	./greetings
 	./web-service-gin
 )
