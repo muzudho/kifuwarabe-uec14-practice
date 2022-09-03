@@ -447,7 +447,11 @@ Don't communicate by sharing memory, share memory by communicating.
 
 # Step [O1o1o0g5o0] あいさつ
 
+👇 以下のサンプルプログラムの実装を行う  
+
 📖 [Tutorial: Create a Go module](https://go.dev/doc/tutorial/create-module)  
+
+# Step [O1o1o0g5o1o_1o0] カレントディレクトリーの移動
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -470,12 +474,14 @@ cd greetings
 
 `📂 greetings` へ カレントディレクトリーが移動した  
 
+# Step [O1o1o0g5o1o_2o0] Goモジュールの作成
+
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
 Input:  
 
 ```shell
-go mod init greetings
+go mod init github.com/muzudho/kifuwarabe-uec14-practice/greetings
 ```
 
 👇 以下のファイルが新規作成された  
@@ -495,7 +501,7 @@ go mod init greetings
 ```
 
 ```go
-module greetings
+module github.com/muzudho/kifuwarabe-uec14-practice/greetings
 
 go 1.19
 ```
@@ -528,6 +534,8 @@ go mod tidy
 ```
 
 ```go
+// BOF [O1o1o0g5o1o0]
+
 package greetings
 
 import "fmt"
@@ -538,7 +546,11 @@ func GetMessage(name string) string {
 	message := fmt.Sprintf("Hi, %v. Welcome!", name)
 	return message
 }
+
+// EOF [O1o1o0g5o1o0]
 ```
+
+# Step [O1o1o0g5o2o_1o0] ワークスペースズ モードへの登録
 
 👇 ここでカレントディレクトリーはまだ 📂 `greetings` だとする  
 

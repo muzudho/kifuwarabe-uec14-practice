@@ -1,3 +1,5 @@
+// BOF [O1o1o0g5o1o0]
+
 package greetings
 
 import "fmt"
@@ -8,3 +10,5 @@ func GetMessage(name string) string {
 	message := fmt.Sprintf("Hi, %v. Welcome!", name)
 	return message
 }
+
+// EOF [O1o1o0g5o1o0]
