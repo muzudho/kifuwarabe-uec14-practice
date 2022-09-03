@@ -662,7 +662,11 @@ Hi, Nanashino Gonbee. Welcome!
 
 # Step [O1o1o0g6o0] RESTful API
 
+👇 以下のサンプルプログラムの実装を行う  
+
 📖 [Tutorial: Developing a RESTful API with Go and Gin](https://go.dev/doc/tutorial/web-service-gin)  
+
+# Step [O1o1o0g6o1o_1o0] カレントディレクトリーの移動
 
 👇 カレントディレクトリーを移動してほしい
 
@@ -678,6 +682,8 @@ Input:
 ```shell
 cd web-service-gin
 ```
+
+# Step [O1o1o0g6o1o_1o0] Goモジュールの作成
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -708,6 +714,8 @@ module github.com/muzudho/kifuwarabe-uec14-practice/web-service-gin
 
 go 1.19
 ```
+
+# Step [O1o1o0g6o1o_2o0] ワークスペースズ モードへの登録
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -749,6 +757,7 @@ use (
 )
 ```
 
+# Step [O1o1o0g6o1o_3o0] カレントディレクトリーを戻す
 
 👇 カレントディレクトリーを移動してほしい  
 
@@ -806,6 +815,8 @@ go mod tidy
 cd web-service-gin
 ```
 
+# Step [O1o1o0g6o2o0] ビューおよびルート作成 - web-service-gin/main.go
+
 👇 以下のファイルを新規作成してほしい  
 
 ```plaintext
@@ -827,6 +838,8 @@ cd web-service-gin
 ```
 
 ```go
+// BOF [O1o1o0g6o2o0]
+
 package main
 
 import (
@@ -855,12 +868,47 @@ func getAlbums(c *gin.Context) {
 	c.IndentedJSON(http.StatusOK, albums)
 }
 
+// getAlbumByID locates the album whose ID value matches the id
+// parameter sent by the client, then returns that album as a response.
+func getAlbumByID(c *gin.Context) {
+	id := c.Param("id")
+
+	// Loop over the list of albums, looking for
+	// an album whose ID value matches the parameter.
+	for _, a := range albums {
+		if a.ID == id {
+			c.IndentedJSON(http.StatusOK, a)
+			return
+		}
+	}
+	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "album not found"})
+}
+
+// postAlbums adds an album from JSON received in the request body.
+func postAlbums(c *gin.Context) {
+	var newAlbum album
+
+	// Call BindJSON to bind the received JSON to
+	// newAlbum.
+	if err := c.BindJSON(&newAlbum); err != nil {
+		return
+	}
+
+	// Add the new album to the slice.
+	albums = append(albums, newAlbum)
+	c.IndentedJSON(http.StatusCreated, newAlbum)
+}
+
 func main() {
 	router := gin.Default()
 	router.GET("/albums", getAlbums)
+	router.GET("/albums/:id", getAlbumByID)
+	router.POST("/albums", postAlbums)
 
 	router.Run("localhost:8080")
 }
+
+// EOF [O1o1o0g6o2o0]
 ```
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
@@ -896,15 +944,186 @@ Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-
 
 👇 ブラウザを開いてアクセスしてほしい  
 
-📖 [http://localhost:8080/](http://localhost:8080/)  
+📖 [http://localhost:8080/albums](http://localhost:8080/albums)  
 
 👇 画面に以下のように表示されるだろう  
 
-```plaintext
-404 page not found
+```json
+[
+    {
+        "id": "1",
+        "title": "Blue Train",
+        "artist": "John Coltrane",
+        "price": 56.99
+    },
+    {
+        "id": "2",
+        "title": "Jeru",
+        "artist": "Gerry Mulligan",
+        "price": 17.99
+    },
+    {
+        "id": "3",
+        "title": "Sarah Vaughan and Clifford Brown",
+        "artist": "Sarah Vaughan",
+        "price": 39.99
+    }
+]
+```
+
+👇 ブラウザを開いてアクセスしてほしい  
+
+📖 [http://localhost:8080/albums/2](http://localhost:8080/albums/2)  
+
+👇 画面に以下のように表示されるだろう  
+
+```json
+{
+    "id": "2",
+    "title": "Jeru",
+    "artist": "Gerry Mulligan",
+    "price": 17.99
+}
 ```
 
 `[Ctrl] + [C]` キーでサーバーを止めてほしい  
+
+# Step [O1o1o0g6o3o0] カレントディレクトリーを戻す
+
+👇 カレントディレクトリーを移動してほしい  
+
+```plaintext
+👉	📂 kifuwarabe-uec14-practice
+	└── 📂 web-service-gin
+```
+
+👇 そのためのコマンドの例  
+
+```shell
+cd ..
+```
+
+# Step [O1o1o0g7o0] ジェネリクス
+
+👇 以下のサンプルプログラムの実装を行う  
+
+📖 [Tutorial: Getting started with generics](https://go.dev/doc/tutorial/generics)  
+
+# Step [O1o1o0g7o1o0] フォルダー
+
+👇 以下のフォルダーを新規作成してほしい  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+👉	├── 📂 generics
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+	│	├── 📄 go.mod
+	│	├── 📄 go.sum
+ 	│	└── 📄 main.go
+  	├── 📄 .gitignore
+  	├── 📄 go.mod
+  	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+# Step [O1o1o0g7o2o0] カレントディレクトリーを移動
+
+👇 カレントディレクトリーを移動してほしい  
+
+```plaintext
+	📂 kifuwarabe-uec14-practice
+👉	└── 📂 generics
+```
+
+👇 そのためのコマンドの例  
+
+```shell
+cd generics
+```
+
+# Step [O1o1o0g7o3o0] Goモジュールの作成
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
+go mod init github.com/muzudho/kifuwarabe-uec14-practice/generics
+```
+
+👇 以下のファイルが自動生成された  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 generics
+👉	│	└── 📄 go.mod
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+	│	├── 📄 go.mod
+	│	├── 📄 go.sum
+ 	│	└── 📄 main.go
+  	├── 📄 .gitignore
+  	├── 📄 go.mod
+  	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+```plaintext
+module github.com/muzudho/kifuwarabe-uec14-practice/generics
+
+go 1.19
+```
+
+# Step [O1o1o0g7o4o0] ワークスペースズ モードへの登録
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
+go work use .
+```
+
+👇 これにより、以下の既存ファイルが自動で編集された  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+ 	│	└── 📄 go.mod
+  	├── 📄 .gitignore
+  	├── 📄 go.mod
+  	├── 📄 go.sum
+👉	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+```go
+// ...略...
+
+// * 以下が自動で削除
+// use (
+// 	   .
+// 	   ./greetings
+// )
+// * 以下が自動で追加
+use (
+	.
+	./greetings
+	./web-service-gin
+)
+```
 
 # 参考にした記事
 
