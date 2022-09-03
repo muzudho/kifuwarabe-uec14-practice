@@ -2204,6 +2204,46 @@ func ViewHandler(w http.ResponseWriter, r *http.Request) {
 		// この上に分岐を挟んでいく
 ```
 
+### Step [O1o1o0g9o9o_1o0] ページ作成
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 fuzz
+	│	├── 📄 go.mod
+	│	├── 📄 main.go
+	│	└── 📄 reverse_test.go
+	├── 📂 generics
+	│	├── 📄 go.mod
+	│	└── 📄 main.go
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+	│	├── 📄 go.mod
+	│	├── 📄 go.sum
+ 	│	└── 📄 main.go
+	├── 📂 gowiki
+	│	├── 📄 go.mod
+	│	├── 📄 simple.go
+👉	│	├── 📄 test.txt
+	│	├── 📄 TestPage.txt
+	│	├── 📄 view.go
+	│	└── 📄 wiki.go
+  	├── 📄 .gitignore
+ 	├── 📄 go.mod
+ 	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+```plaintext
+Hello world
+```
+
 ## Step [O1o1o0g9o9o0] ビルド
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
@@ -2261,11 +2301,19 @@ Input:
 gowiki.exe vol3
 ```
 
-## Step [O1o1o0g9o11o0] 実行
+## Step [O1o1o0g9o11o0] Webアクセス
 
 👇 ブラウザを開いてアクセスしてほしい  
 
 📖 [http://localhost:8080/view/test](http://localhost:8080/view/test)  
+
+👇 画面に以下のように表示されるだろう  
+
+```plaintext
+test
+
+Hello world
+```
 
 # 参考にした記事
 
