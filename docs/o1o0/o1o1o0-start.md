@@ -1832,129 +1832,7 @@ use (
 )
 ```
 
-## Step [O1o1o0g9o5o_1o0] Vol1 プログラム作成 - simple.go
-
-👇 以下のファイルを新規作成してほしい  
-
-```plaintext
-  	📂 kifuwarabe-uec14-practice
-	├── 📂 fuzz
-	│	├── 📄 go.mod
-	│	├── 📄 main.go
-	│	└── 📄 reverse_test.go
-	├── 📂 generics
-	│	├── 📄 go.mod
-	│	└── 📄 main.go
-	├── 📂 greetings
-	│	├── 📂 japanese
-	│	├── 📄 go.mod
-	│	└── 📄 welcome.go
-	├── 📂 web-service-gin
-	│	├── 📄 go.mod
-	│	├── 📄 go.sum
- 	│	└── 📄 main.go
-	├── 📂 gowiki
-	│	├── 📄 go.mod
-👉	│	├── 📄 simple.go
-	│	└── 📄 wiki.go
-  	├── 📄 .gitignore
- 	├── 📄 go.mod
- 	├── 📄 go.sum
-	├── 📄 go.work
-	├── 📄 go.work.sum
-  	└── 📄 main.go
-```
-
-```go
-// BOF [O1o1o0g9o5o_1o0]
-
-package main
-
-import (
-	"fmt"
-	"net/http"
-)
-
-func SimpleHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
-}
-
-// EOF [O1o1o0g9o5o_1o0]
-```
-
-先頭行に `//go:build ignore` と書くと Go言語のビルド対象から外れるようだが、  
-ビルド対象に含めることにした  
-
-## Step [O1o1o0g9o5o_2o0] Vol2 プログラム編集
-
-👇 以下の既存ファイルを編集してほしい  
-
-```plaintext
-  	📂 kifuwarabe-uec14-practice
-	├── 📂 fuzz
-	│	├── 📄 go.mod
-	│	├── 📄 main.go
-	│	└── 📄 reverse_test.go
-	├── 📂 generics
-	│	├── 📄 go.mod
-	│	└── 📄 main.go
-	├── 📂 greetings
-	│	├── 📂 japanese
-	│	├── 📄 go.mod
-	│	└── 📄 welcome.go
-	├── 📂 web-service-gin
-	│	├── 📄 go.mod
-	│	├── 📄 go.sum
- 	│	└── 📄 main.go
-	├── 📂 gowiki
-	│	├── 📄 go.mod
-	│	├── 📄 simple.go
-👉	│	└── 📄 wiki.go
-  	├── 📄 .gitignore
- 	├── 📄 go.mod
- 	├── 📄 go.sum
-	├── 📄 go.work
-	├── 📄 go.work.sum
-  	└── 📄 main.go
-```
-
-👇 抜粋  
-
-```go
-// ...略...
-
-
-	// * 以下を追加する
-	} else if name == "vol2" {
-		http.HandleFunc("/", SimpleHandler)
-		log.Fatal(http.ListenAndServe(":8080", nil))
-
-		// この上に分岐を挟んでいく
-```
-
-### Step [O1o1o0g9o5o_3o0] 実行
-
-👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
-
-Input:  
-
-```shell
-go run . vol2
-```
-
-### Step [O1o1o0g9o5o_4o0] Webアクセス
-
-👇 ブラウザを開いてアクセスしてほしい  
-
-📖 [http://localhost:8080/albums](http://localhost:8080/albums)  
-
-👇 画面に以下のように表示されるだろう  
-
-```plaintext
-Hi there, I love albums!
-```
-
-## Step [O1o1o0g9o5o0] Vol3 プログラム作成
+## Step [O1o1o0g9o5o0] Vol1 プログラム作成
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -2083,6 +1961,137 @@ This is a sample Page.
 	├── 📄 go.work.sum
   	└── 📄 main.go
 ```
+
+
+
+
+
+
+## Step [O1o1o0g9o7o_1o0] Vol2 プログラム作成 - simple.go
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 fuzz
+	│	├── 📄 go.mod
+	│	├── 📄 main.go
+	│	└── 📄 reverse_test.go
+	├── 📂 generics
+	│	├── 📄 go.mod
+	│	└── 📄 main.go
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+	│	├── 📄 go.mod
+	│	├── 📄 go.sum
+ 	│	└── 📄 main.go
+	├── 📂 gowiki
+	│	├── 📄 go.mod
+👉	│	├── 📄 simple.go
+	│	└── 📄 wiki.go
+  	├── 📄 .gitignore
+ 	├── 📄 go.mod
+ 	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+```go
+// BOF [O1o1o0g9o7o_1o0]
+
+package main
+
+import (
+	"fmt"
+	"net/http"
+)
+
+func SimpleHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
+}
+
+// EOF [O1o1o0g9o7o_1o0]
+```
+
+先頭行に `//go:build ignore` と書くと Go言語のビルド対象から外れるようだが、  
+ビルド対象に含めることにした  
+
+### Step [O1o1o0g9o7o_2o0] プログラム編集
+
+👇 以下の既存ファイルを編集してほしい  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 fuzz
+	│	├── 📄 go.mod
+	│	├── 📄 main.go
+	│	└── 📄 reverse_test.go
+	├── 📂 generics
+	│	├── 📄 go.mod
+	│	└── 📄 main.go
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+	│	├── 📄 go.mod
+	│	├── 📄 go.sum
+ 	│	└── 📄 main.go
+	├── 📂 gowiki
+	│	├── 📄 go.mod
+	│	├── 📄 simple.go
+👉	│	└── 📄 wiki.go
+  	├── 📄 .gitignore
+ 	├── 📄 go.mod
+ 	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+👇 抜粋  
+
+```go
+// ...略...
+
+
+	// * 以下を追加する
+	} else if name == "vol2" {
+		http.HandleFunc("/", SimpleHandler)
+		log.Fatal(http.ListenAndServe(":8080", nil))
+
+		// この上に分岐を挟んでいく
+```
+
+### Step [O1o1o0g9o7o_3o0] 実行
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+Input:  
+
+```shell
+go run . vol2
+```
+
+### Step [O1o1o0g9o7o_4o0] Webアクセス
+
+👇 ブラウザを開いてアクセスしてほしい  
+
+📖 [http://localhost:8080/albums](http://localhost:8080/albums)  
+
+👇 画面に以下のように表示されるだろう  
+
+```plaintext
+Hi there, I love albums!
+```
+
+
+
+
 
 ## Step [O1o1o0g9o7o0] Vol4 プログラム作成
 
