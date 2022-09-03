@@ -41,6 +41,10 @@ func main() {
 		fmt.Println(string(p2.Body))
 
 	} else if name == "vol2" {
+		http.HandleFunc("/", SimpleHandler)
+		log.Fatal(http.ListenAndServe(":8080", nil))
+
+	} else if name == "vol3" {
 
 		http.HandleFunc("/view/", ViewHandler)
 		log.Fatal(http.ListenAndServe(":8080", nil))
