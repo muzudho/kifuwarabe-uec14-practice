@@ -253,7 +253,7 @@ go mod tidy
   	└── 📄 go.work
 ```
 
-# Step [O1o1o0g3o0] ハローワールド
+# Step [O1o1o0g3o0] サンプルプログラム - ハローワールド
 
 Go言語では フォルダーを、ファイルを小分けにするただの入れ物として使うには向いていない。  
 大量のファイルをトップレベルに置いておくことも気にしないことにする  
@@ -378,7 +378,7 @@ Hello, World!
 
 Go言語を実行する環境は整ったようだ  
 
-# Step [O1o1o0g4o_1o0] クォート
+# Step [O1o1o0g4o_1o0] サンプルプログラム - クォート
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -445,7 +445,7 @@ Don't communicate by sharing memory, share memory by communicating.
 以上のようなメッセージが出てくる。  
 このサンプルプログラムは何をやっているのか分からない。  
 
-# Step [O1o1o0g5o0] あいさつ
+# Step [O1o1o0g5o0] サンプルプログラム - あいさつ
 
 👇 以下のサンプルプログラムの実装を行う  
 
@@ -672,7 +672,7 @@ Output:
 Hi, Nanashino Gonbee. Welcome!
 ```
 
-# Step [O1o1o0g6o0] RESTful API
+# Step [O1o1o0g6o0] サンプルプログラム - RESTful API
 
 👇 以下のサンプルプログラムの実装を行う  
 
@@ -1017,13 +1017,13 @@ Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-
 cd ..
 ```
 
-# Step [O1o1o0g7o0] ジェネリクス
+# Step [O1o1o0g7o0] サンプルプログラム - ジェネリクス
 
 👇 以下のサンプルプログラムの実装を行う  
 
 📖 [Tutorial: Getting started with generics](https://go.dev/doc/tutorial/generics)  
 
-# Step [O1o1o0g7o1o0] フォルダー
+# Step [O1o1o0g7o1o0] フォルダー作成
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -1048,17 +1048,43 @@ cd ..
 
 # Step [O1o1o0g7o2o0] カレントディレクトリーを移動
 
-👇 カレントディレクトリーを移動してほしい  
+👇 コマンドラインのプロンプトを見てほしい  
+
+```shell
+C:\Users\むずでょ\go\src\github.com\muzudho\kifuwarabe-uec14-practice>
+# ------------------------------------------------------------------
+# 11
+# -------------------------------------------------------------------
+# 10
+#
+# 10. （`C:` も含めて）これがプロンプト
+# 11. カレントディレクトリー
+```
+
+👇 現在のカレントディレクトリーが以下とする  
+
+```plaintext
+👉	📂 kifuwarabe-uec14-practice
+ 	└── 📂 generics
+```
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
+cd generics
+```
+
+👇 コマンドラインのプロンプトを見てほしい  
+
+```shell
+C:\Users\むずでょ\go\src\github.com\muzudho\kifuwarabe-uec14-practice\generics>
+```
+
+👇 カレントディレクトリーは移動した  
 
 ```plaintext
 	📂 kifuwarabe-uec14-practice
 👉	└── 📂 generics
-```
-
-👇 そのためのコマンドの例  
-
-```shell
-cd generics
 ```
 
 # Step [O1o1o0g7o3o0] Goモジュールの作成
@@ -1334,6 +1360,314 @@ Non-Generic Sums: 46 and 62.97
 Generic Sums: 46 and 62.97
 Generic Sums, type parameters inferred: 46 and 62.97
 Generic Sums with Constraint: 46 and 62.97
+```
+
+# Step [O1o1o0g8o0] サンプルプログラム - Fussing
+
+👇 以下のサンプルプログラムの実装を行う  
+
+📖 [Tutorial: Getting started with fuzzing](https://go.dev/doc/tutorial/fuzz)  
+
+# Step [O1o1o0g8o1o0] フォルダー作成
+
+👇 以下のフォルダーを新規作成してほしい  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+👉	├── 📂 fuzz
+	├── 📂 generics
+	│	├── 📄 go.mod
+	│	└── 📄 main.go
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+	│	├── 📄 go.mod
+	│	├── 📄 go.sum
+ 	│	└── 📄 main.go
+  	├── 📄 .gitignore
+ 	├── 📄 go.mod
+ 	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+# Step [O1o1o0g8o2o0] カレントディレクトリーを移動
+
+👇 現在のカレントディレクトリーが以下とする  
+
+```plaintext
+👉	📂 kifuwarabe-uec14-practice
+ 	└── 📂 fuzz
+```
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
+cd fuzz
+```
+
+👇 カレントディレクトリーは移動した  
+
+```plaintext
+	📂 kifuwarabe-uec14-practice
+👉	└── 📂 fuzz
+```
+
+# Step [O1o1o0g8o3o0] Goモジュールの作成
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
+go mod init github.com/muzudho/kifuwarabe-uec14-practice/fuzz
+```
+
+👇 以下のファイルが自動生成された  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 fuzz
+👉	│	└── 📄 go.mod
+	├── 📂 generics
+	│	├── 📄 go.mod
+	│	└── 📄 main.go
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+	│	├── 📄 go.mod
+	│	├── 📄 go.sum
+ 	│	└── 📄 main.go
+  	├── 📄 .gitignore
+ 	├── 📄 go.mod
+ 	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+```plaintext
+module github.com/muzudho/kifuwarabe-uec14-practice/fuzz
+
+go 1.19
+```
+
+# Step [O1o1o0g8o4o0] ワークスペースズ モードへの登録
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
+go work use .
+```
+
+👇 これにより、以下の既存ファイルが自動で編集された  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 fuzz
+👉	│	└── 📄 go.mod
+	├── 📂 generics
+	│	├── 📄 go.mod
+	│	└── 📄 main.go
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+	│	├── 📄 go.mod
+	│	├── 📄 go.sum
+ 	│	└── 📄 main.go
+  	├── 📄 .gitignore
+ 	├── 📄 go.mod
+ 	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+```go
+// ...略...
+
+// * 以下が自動で削除
+// use (
+// 	   .
+//     ./generics
+// 	   ./greetings
+//     ./web-service-gin
+// )
+// * 以下が自動で追加
+use (
+	.
+	./fuzz
+	./generics
+	./greetings
+	./web-service-gin
+)
+```
+
+# Step [O1o1o0g8o5o0] プログラム作成
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 fuzz
+	│	├── 📄 go.mod
+👉	│	└── 📄 main.go
+	├── 📂 generics
+	│	├── 📄 go.mod
+	│	└── 📄 main.go
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+	│	├── 📄 go.mod
+	│	├── 📄 go.sum
+ 	│	└── 📄 main.go
+  	├── 📄 .gitignore
+ 	├── 📄 go.mod
+ 	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+```go
+// BOF [O1o1o0g8o5o0]
+
+package main
+
+import (
+	"errors"
+	"fmt"
+	"unicode/utf8"
+)
+
+func main() {
+	input := "The quick brown fox jumped over the lazy dog"
+	rev, revErr := Reverse(input)
+	doubleRev, doubleRevErr := Reverse(rev)
+	fmt.Printf("original: %q\n", input)
+	fmt.Printf("reversed: %q, err: %v\n", rev, revErr)
+	fmt.Printf("reversed again: %q, err: %v\n", doubleRev, doubleRevErr)
+}
+
+func Reverse(s string) (string, error) {
+	if !utf8.ValidString(s) {
+		return s, errors.New("input is not valid UTF-8")
+	}
+	r := []rune(s)
+	for i, j := 0, len(r)-1; i < len(r)/2; i, j = i+1, j-1 {
+		r[i], r[j] = r[j], r[i]
+	}
+	return string(r), nil
+}
+
+// EOF [O1o1o0g8o5o0]
+```
+
+# Step [O1o1o0g8o5o1o0] プログラム作成
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 fuzz
+	│	├── 📄 go.mod
+	│	├── 📄 main.go
+👉	│	└── 📄 reverse_test.go
+	├── 📂 generics
+	│	├── 📄 go.mod
+	│	└── 📄 main.go
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+	│	├── 📄 go.mod
+	│	├── 📄 go.sum
+ 	│	└── 📄 main.go
+  	├── 📄 .gitignore
+ 	├── 📄 go.mod
+ 	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+```go
+// BOF [O1o1o0g8o5o1o0]
+
+package main
+
+import (
+	"testing"
+	"unicode/utf8"
+)
+
+func FuzzReverse(f *testing.F) {
+	testcases := []string{"Hello, world", " ", "!12345"}
+	for _, tc := range testcases {
+		f.Add(tc) // Use f.Add to provide a seed corpus
+	}
+	f.Fuzz(func(t *testing.T, orig string) {
+		rev, err1 := Reverse(orig)
+		if err1 != nil {
+			return
+		}
+		doubleRev, err2 := Reverse(rev)
+		if err2 != nil {
+			return
+		}
+		if orig != doubleRev {
+			t.Errorf("Before: %q, after: %q", orig, doubleRev)
+		}
+		if utf8.ValidString(orig) && !utf8.ValidString(rev) {
+			t.Errorf("Reverse produced invalid UTF-8 string %q", rev)
+		}
+	})
+}
+
+// EOF [O1o1o0g8o5o1o0]
+```
+
+# Step [O1o1o0g8o6o0] 実行
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+Input:  
+
+```shell
+go run .
+```
+
+Output:  
+
+```plaintext
+original: "The quick brown fox jumped over the lazy dog"
+reversed: "god yzal eht revo depmuj xof nworb kciuq ehT", err: <nil>
+reversed again: "The quick brown fox jumped over the lazy dog", err: <nil>
+```
+
+# Step [O1o1o0g8o7o0] テスト
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+Input:  
+
+```shell
+go test
+```
+
+Output:  
+
+```shell
+PASS
+ok      github.com/muzudho/kifuwarabe-uec14-practice/fuzz       0.219s
 ```
 
 # 参考にした記事
