@@ -19,10 +19,10 @@ func main() {
 	} else if name == "greetings" { // [O1o1o0g5o2o0]
 		fmt.Println(greetings.GetMessage("Nanashino Gonbee"))
 
-		// この上に分岐を挟んでいく
-
 	} else if name == "quote" { // [O1o1o0g4o0]
 		fmt.Println(quote.Go())
+
+		// この上に分岐を挟んでいく
 
 	} else {
 		fmt.Println("go run . {programName}")

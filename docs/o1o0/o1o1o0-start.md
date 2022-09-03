@@ -1868,6 +1868,7 @@ use (
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os"
 )
@@ -1892,10 +1893,21 @@ func loadPage(title string) (*Page, error) {
 }
 
 func main() {
-	p1 := &Page{Title: "TestPage", Body: []byte("This is a sample Page.")}
-	p1.save()
-	p2, _ := loadPage("TestPage")
-	fmt.Println(string(p2.Body))
+	flag.Parse()
+	// プログラム名
+	var name = flag.Arg(0)
+
+	if name == "vol1" { // [O1o1o0g9o5o0]
+		p1 := &Page{Title: "TestPage", Body: []byte("This is a sample Page.")}
+		p1.save()
+		p2, _ := loadPage("TestPage")
+		fmt.Println(string(p2.Body))
+
+		// この上に分岐を挟んでいく
+
+	} else {
+		fmt.Println("go run . {programName}")
+	}
 }
 
 // EOF [O1o1o0g9o5o0]
@@ -1908,13 +1920,44 @@ func main() {
 Input:  
 
 ```shell
-go run .
+go run . vol1
 ```
 
 Output:  
 
 ```shell
 This is a sample Page.
+```
+
+👇 以下のファイルが自動生成された  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 fuzz
+	│	├── 📄 go.mod
+	│	├── 📄 main.go
+	│	└── 📄 reverse_test.go
+	├── 📂 generics
+	│	├── 📄 go.mod
+	│	└── 📄 main.go
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+	│	├── 📄 go.mod
+	│	├── 📄 go.sum
+ 	│	└── 📄 main.go
+	├── 📂 gowiki
+	│	├── 📄 go.mod
+👉	│	├── 📄 TestPage.txt
+	│	└── 📄 wiki.go
+  	├── 📄 .gitignore
+ 	├── 📄 go.mod
+ 	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
 ```
 
 # 参考にした記事
