@@ -1670,6 +1670,253 @@ PASS
 ok      github.com/muzudho/kifuwarabe-uec14-practice/fuzz       0.219s
 ```
 
+# Step [O1o1o0g9o0] サンプルプログラム - Wiki
+
+👇 以下のサンプルプログラムの実装を行う  
+
+📖 [Writing Web Applications](https://go.dev/doc/articles/wiki/)  
+
+# Step [O1o1o0g9o1o0] フォルダー作成
+
+👇 以下のフォルダーを新規作成してほしい  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 fuzz
+	│	├── 📄 go.mod
+	│	├── 📄 main.go
+	│	└── 📄 reverse_test.go
+	├── 📂 generics
+	│	├── 📄 go.mod
+	│	└── 📄 main.go
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+	│	├── 📄 go.mod
+	│	├── 📄 go.sum
+ 	│	└── 📄 main.go
+👉	├── 📂 gowiki
+  	├── 📄 .gitignore
+ 	├── 📄 go.mod
+ 	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+# Step [O1o1o0g9o2o0] カレントディレクトリーを移動
+
+👇 現在のカレントディレクトリーが以下とする  
+
+```plaintext
+👉	📂 kifuwarabe-uec14-practice
+ 	└── 📂 gowiki
+```
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
+cd gowiki
+```
+
+👇 カレントディレクトリーは移動した  
+
+```plaintext
+	📂 kifuwarabe-uec14-practice
+👉	└── 📂 gowiki
+```
+
+# Step [O1o1o0g9o3o0] Goモジュールの作成
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
+go mod init github.com/muzudho/kifuwarabe-uec14-practice/gowiki
+```
+
+👇 以下のファイルが自動生成された  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 fuzz
+	│	├── 📄 go.mod
+	│	├── 📄 main.go
+	│	└── 📄 reverse_test.go
+	├── 📂 generics
+	│	├── 📄 go.mod
+	│	└── 📄 main.go
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+	│	├── 📄 go.mod
+	│	├── 📄 go.sum
+ 	│	└── 📄 main.go
+	├── 📂 gowiki
+👉	│	└── 📄 go.mod
+  	├── 📄 .gitignore
+ 	├── 📄 go.mod
+ 	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+```plaintext
+module github.com/muzudho/kifuwarabe-uec14-practice/gowiki
+
+go 1.19
+```
+
+# Step [O1o1o0g9o4o0] ワークスペースズ モードへの登録
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
+go work use .
+```
+
+👇 これにより、以下の既存ファイルが自動で編集された  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 fuzz
+	│	├── 📄 go.mod
+	│	├── 📄 main.go
+	│	└── 📄 reverse_test.go
+	├── 📂 generics
+	│	├── 📄 go.mod
+	│	└── 📄 main.go
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+	│	├── 📄 go.mod
+	│	├── 📄 go.sum
+ 	│	└── 📄 main.go
+	├── 📂 gowiki
+	│	└── 📄 go.mod
+  	├── 📄 .gitignore
+ 	├── 📄 go.mod
+ 	├── 📄 go.sum
+👉	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+```go
+// ...略...
+
+// * 以下が自動で削除
+// use (
+// 	   .
+//     ./fuzz
+//     ./generics
+// 	   ./greetings
+//     ./web-service-gin
+// )
+// * 以下が自動で追加
+use (
+	.
+	./fuzz
+	./generics
+	./gowiki
+	./greetings
+	./web-service-gin
+)
+```
+
+# Step [O1o1o0g9o5o0] プログラム作成
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 fuzz
+	│	├── 📄 go.mod
+	│	├── 📄 main.go
+	│	└── 📄 reverse_test.go
+	├── 📂 generics
+	│	├── 📄 go.mod
+	│	└── 📄 main.go
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+	│	├── 📄 go.mod
+	│	├── 📄 go.sum
+ 	│	└── 📄 main.go
+	├── 📂 gowiki
+	│	├── 📄 go.mod
+👉	│	└── 📄 wiki.go
+  	├── 📄 .gitignore
+ 	├── 📄 go.mod
+ 	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+```go
+// BOF [O1o1o0g9o5o0]
+
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+type Page struct {
+	Title string
+	Body  []byte
+}
+
+func (p *Page) save() error {
+	filename := p.Title + ".txt"
+	return os.WriteFile(filename, p.Body, 0600)
+}
+
+func loadPage(title string) (*Page, error) {
+	filename := title + ".txt"
+	body, err := os.ReadFile(filename)
+	if err != nil {
+		return nil, err
+	}
+	return &Page{Title: title, Body: body}, nil
+}
+
+func main() {
+	p1 := &Page{Title: "TestPage", Body: []byte("This is a sample Page.")}
+	p1.save()
+	p2, _ := loadPage("TestPage")
+	fmt.Println(string(p2.Body))
+}
+
+// EOF [O1o1o0g9o5o0]
+```
+
+# Step [O1o1o0g9o6o0] 実行
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+Input:  
+
+```shell
+go run .
+```
+
+Output:  
+
+```shell
+This is a sample Page.
+```
+
 # 参考にした記事
 
 📖 [Go [O1o1o0] 目指せ！第１４回ＵＥＣ杯コンピューター囲碁大会](https://qiita.com/muzudho1/items/cea62be01f7418bbf150) - この記事  
