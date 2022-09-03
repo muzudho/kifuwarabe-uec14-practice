@@ -388,7 +388,7 @@ Input:
 go get rsc.io/quote
 ```
 
-# Step [O1o1o0g4o0] クォート
+## Step [O1o1o0g4o0] クォート
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -451,7 +451,7 @@ Don't communicate by sharing memory, share memory by communicating.
 
 📖 [Tutorial: Create a Go module](https://go.dev/doc/tutorial/create-module)  
 
-# Step [O1o1o0g5o1o_1o0] カレントディレクトリーの移動
+## Step [O1o1o0g5o1o_1o0] カレントディレクトリーの移動
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -474,7 +474,7 @@ cd greetings
 
 `📂 greetings` へ カレントディレクトリーが移動した  
 
-# Step [O1o1o0g5o1o_2o0] Goモジュールの作成
+## Step [O1o1o0g5o1o_2o0] Goモジュールの作成
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -514,7 +514,7 @@ Input:
 go mod tidy
 ```
 
-# Step [O1o1o0g5o1o0] あいさつ
+## Step [O1o1o0g5o1o0] あいさつ
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -550,7 +550,7 @@ func GetMessage(name string) string {
 // EOF [O1o1o0g5o1o0]
 ```
 
-# Step [O1o1o0g5o2o_1o0] ワークスペースズ モードへの登録
+## Step [O1o1o0g5o2o_1o0] ワークスペースズ モードへの登録
 
 👇 ここでカレントディレクトリーはまだ 📂 `greetings` だとする  
 
@@ -598,7 +598,7 @@ use (
 
 これにより、 📄 `main.go` から 📄 `greetings/welcome.go` ファイル（パッケージ）にパスを通すことができるようになる  
 
-# Step [O1o1o0g5o2o0] あいさつ
+## Step [O1o1o0g5o2o0] あいさつ
 
 👇 以下の既存ファイルを編集してほしい  
 
@@ -637,7 +637,7 @@ import (
 		// この上に分岐を挟んでいく
 ```
 
-# Step [O1o1o0g5o2o1o0] あいさつ
+## Step [O1o1o0g5o2o1o0] あいさつ
 
 👇 カレントディレクトリーを戻してほしい  
 
@@ -678,7 +678,7 @@ Hi, Nanashino Gonbee. Welcome!
 
 📖 [Tutorial: Developing a RESTful API with Go and Gin](https://go.dev/doc/tutorial/web-service-gin)  
 
-# Step [O1o1o0g6o1o_1o0] カレントディレクトリーの移動
+## Step [O1o1o0g6o1o_1o0] カレントディレクトリーの移動
 
 👇 カレントディレクトリーを移動してほしい
 
@@ -695,7 +695,7 @@ Input:
 cd web-service-gin
 ```
 
-# Step [O1o1o0g6o1o_1o0] Goモジュールの作成
+## Step [O1o1o0g6o1o_1o0] Goモジュールの作成
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -727,7 +727,7 @@ module github.com/muzudho/kifuwarabe-uec14-practice/web-service-gin
 go 1.19
 ```
 
-# Step [O1o1o0g6o1o_2o0] ワークスペースズ モードへの登録
+## Step [O1o1o0g6o1o_2o0] ワークスペースズ モードへの登録
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -769,7 +769,7 @@ use (
 )
 ```
 
-# Step [O1o1o0g6o1o_3o0] カレントディレクトリーを戻す
+## Step [O1o1o0g6o1o_3o0] カレントディレクトリーを戻す
 
 👇 カレントディレクトリーを移動してほしい  
 
@@ -812,7 +812,7 @@ go mod tidy
 
 内容は行数が多いので省略  
 
-# Step [O1o1o0g6o1o0] データの作成
+## Step [O1o1o0g6o1o0] データの作成
 
 👇 カレントディレクトリーを移動してほしい  
 
@@ -827,7 +827,7 @@ go mod tidy
 cd web-service-gin
 ```
 
-# Step [O1o1o0g6o2o0] ビューおよびルート作成 - web-service-gin/main.go
+## Step [O1o1o0g6o2o0] ビューおよびルート作成 - web-service-gin/main.go
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -931,7 +931,7 @@ go get .
 
 必要なパッケージが自動的にダウンロードされるのだろう  
 
-# Step [O1o1o0g6o3o_1o0] 実行
+## Step [O1o1o0g6o3o_1o0] 実行
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -1002,7 +1002,7 @@ Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-
 
 `[Ctrl] + [C]` キーでサーバーを止めてほしい  
 
-# Step [O1o1o0g6o3o0] カレントディレクトリーを戻す
+## Step [O1o1o0g6o3o0] カレントディレクトリーを戻す
 
 👇 カレントディレクトリーを移動してほしい  
 
@@ -1023,7 +1023,7 @@ cd ..
 
 📖 [Tutorial: Getting started with generics](https://go.dev/doc/tutorial/generics)  
 
-# Step [O1o1o0g7o1o0] フォルダー作成
+## Step [O1o1o0g7o1o0] フォルダー作成
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -1046,7 +1046,7 @@ cd ..
   	└── 📄 main.go
 ```
 
-# Step [O1o1o0g7o2o0] カレントディレクトリーを移動
+## Step [O1o1o0g7o2o0] カレントディレクトリーを移動
 
 👇 コマンドラインのプロンプトを見てほしい  
 
@@ -1087,7 +1087,7 @@ C:\Users\むずでょ\go\src\github.com\muzudho\kifuwarabe-uec14-practice\generi
 👉	└── 📂 generics
 ```
 
-# Step [O1o1o0g7o3o0] Goモジュールの作成
+## Step [O1o1o0g7o3o0] Goモジュールの作成
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -1123,7 +1123,7 @@ module github.com/muzudho/kifuwarabe-uec14-practice/generics
 go 1.19
 ```
 
-# Step [O1o1o0g7o4o0] ワークスペースズ モードへの登録
+## Step [O1o1o0g7o4o0] ワークスペースズ モードへの登録
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -1171,7 +1171,7 @@ use (
 )
 ```
 
-# Step [O1o1o0g7o5o0] プログラム作成
+## Step [O1o1o0g7o5o0] プログラム作成
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1278,7 +1278,7 @@ func SumNumbers[K comparable, V Number](m map[K]V) V {
 // EOF [O1o1o0g7o5o0]
 ```
 
-# Step [O1o1o0g7o6o0] カレントディレクトリーを移動
+## Step [O1o1o0g7o6o0] カレントディレクトリーを移動
 
 👇 カレントディレクトリーを移動してほしい  
 
@@ -1293,7 +1293,7 @@ func SumNumbers[K comparable, V Number](m map[K]V) V {
 cd ../
 ```
 
-# Step [O1o1o0g7o7o0] tidy
+## Step [O1o1o0g7o7o0] tidy
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -1328,7 +1328,7 @@ go mod tidy
 
 内容は行数が多いので省略  
 
-# Step [O1o1o0g7o8o0] カレントディレクトリーを移動
+## Step [O1o1o0g7o8o0] カレントディレクトリーを移動
 
 👇 カレントディレクトリーを移動してほしい  
 
@@ -1343,7 +1343,7 @@ go mod tidy
 cd generics
 ```
 
-# Step [O1o1o0g7o9o0] 実行
+## Step [O1o1o0g7o9o0] 実行
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -1368,7 +1368,7 @@ Generic Sums with Constraint: 46 and 62.97
 
 📖 [Tutorial: Getting started with fuzzing](https://go.dev/doc/tutorial/fuzz)  
 
-# Step [O1o1o0g8o1o0] フォルダー作成
+## Step [O1o1o0g8o1o0] フォルダー作成
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -1394,7 +1394,7 @@ Generic Sums with Constraint: 46 and 62.97
   	└── 📄 main.go
 ```
 
-# Step [O1o1o0g8o2o0] カレントディレクトリーを移動
+## Step [O1o1o0g8o2o0] カレントディレクトリーを移動
 
 👇 現在のカレントディレクトリーが以下とする  
 
@@ -1416,7 +1416,7 @@ cd fuzz
 👉	└── 📂 fuzz
 ```
 
-# Step [O1o1o0g8o3o0] Goモジュールの作成
+## Step [O1o1o0g8o3o0] Goモジュールの作成
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -1455,7 +1455,7 @@ module github.com/muzudho/kifuwarabe-uec14-practice/fuzz
 go 1.19
 ```
 
-# Step [O1o1o0g8o4o0] ワークスペースズ モードへの登録
+## Step [O1o1o0g8o4o0] ワークスペースズ モードへの登録
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -1508,7 +1508,7 @@ use (
 )
 ```
 
-# Step [O1o1o0g8o5o0] プログラム作成
+## Step [O1o1o0g8o5o0] プログラム作成
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1570,7 +1570,7 @@ func Reverse(s string) (string, error) {
 // EOF [O1o1o0g8o5o0]
 ```
 
-# Step [O1o1o0g8o5o1o0] プログラム作成
+## Step [O1o1o0g8o5o1o0] プログラム作成
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1635,7 +1635,7 @@ func FuzzReverse(f *testing.F) {
 // EOF [O1o1o0g8o5o1o0]
 ```
 
-# Step [O1o1o0g8o6o0] 実行
+## Step [O1o1o0g8o6o0] 実行
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -1653,7 +1653,7 @@ reversed: "god yzal eht revo depmuj xof nworb kciuq ehT", err: <nil>
 reversed again: "The quick brown fox jumped over the lazy dog", err: <nil>
 ```
 
-# Step [O1o1o0g8o7o0] テスト
+## Step [O1o1o0g8o7o0] テスト
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -1676,7 +1676,7 @@ ok      github.com/muzudho/kifuwarabe-uec14-practice/fuzz       0.219s
 
 📖 [Writing Web Applications](https://go.dev/doc/articles/wiki/)  
 
-# Step [O1o1o0g9o1o0] フォルダー作成
+## Step [O1o1o0g9o1o0] フォルダー作成
 
 👇 以下のフォルダーを新規作成してほしい  
 
@@ -1706,7 +1706,7 @@ ok      github.com/muzudho/kifuwarabe-uec14-practice/fuzz       0.219s
   	└── 📄 main.go
 ```
 
-# Step [O1o1o0g9o2o0] カレントディレクトリーを移動
+## Step [O1o1o0g9o2o0] カレントディレクトリーを移動
 
 👇 現在のカレントディレクトリーが以下とする  
 
@@ -1728,7 +1728,7 @@ cd gowiki
 👉	└── 📂 gowiki
 ```
 
-# Step [O1o1o0g9o3o0] Goモジュールの作成
+## Step [O1o1o0g9o3o0] Goモジュールの作成
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -1771,7 +1771,7 @@ module github.com/muzudho/kifuwarabe-uec14-practice/gowiki
 go 1.19
 ```
 
-# Step [O1o1o0g9o4o0] ワークスペースズ モードへの登録
+## Step [O1o1o0g9o4o0] ワークスペースズ モードへの登録
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -1830,7 +1830,7 @@ use (
 )
 ```
 
-# Step [O1o1o0g9o5o0] プログラム作成
+## Step [O1o1o0g9o5o0] プログラム作成
 
 👇 以下のファイルを新規作成してほしい  
 
@@ -1913,7 +1913,7 @@ func main() {
 // EOF [O1o1o0g9o5o0]
 ```
 
-# Step [O1o1o0g9o6o0] 実行
+## Step [O1o1o0g9o6o0] 実行
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -1958,6 +1958,118 @@ This is a sample Page.
 	├── 📄 go.work
 	├── 📄 go.work.sum
   	└── 📄 main.go
+```
+
+## Step [O1o1o0g9o7o0] プログラム作成
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 fuzz
+	│	├── 📄 go.mod
+	│	├── 📄 main.go
+	│	└── 📄 reverse_test.go
+	├── 📂 generics
+	│	├── 📄 go.mod
+	│	└── 📄 main.go
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+	│	├── 📄 go.mod
+	│	├── 📄 go.sum
+ 	│	└── 📄 main.go
+	├── 📂 gowiki
+	│	├── 📄 go.mod
+	│	├── 📄 TestPage.txt
+👉	│	├── 📄 view.go
+	│	└── 📄 wiki.go
+  	├── 📄 .gitignore
+ 	├── 📄 go.mod
+ 	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+```go
+// BOF [O1o1o0g9o7o0]
+
+package main
+
+import (
+	"fmt"
+	"net/http"
+)
+
+func ViewHandler(w http.ResponseWriter, r *http.Request) {
+	title := r.URL.Path[len("/view/"):]
+	p, _ := loadPage(title)
+	fmt.Fprintf(w, "<h1>%s</h1><div>%s</div>", p.Title, p.Body)
+}
+
+// EOF [O1o1o0g9o7o0]
+```
+
+## Step [O1o1o0g9o8o0] プログラム編集
+
+👇 以下の既存ファイルを編集してほしい  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 fuzz
+	│	├── 📄 go.mod
+	│	├── 📄 main.go
+	│	└── 📄 reverse_test.go
+	├── 📂 generics
+	│	├── 📄 go.mod
+	│	└── 📄 main.go
+	├── 📂 greetings
+	│	├── 📂 japanese
+	│	├── 📄 go.mod
+	│	└── 📄 welcome.go
+	├── 📂 web-service-gin
+	│	├── 📄 go.mod
+	│	├── 📄 go.sum
+ 	│	└── 📄 main.go
+	├── 📂 gowiki
+	│	├── 📄 go.mod
+	│	├── 📄 TestPage.txt
+	│	├── 📄 view.go
+👉	│	└── 📄 wiki.go
+  	├── 📄 .gitignore
+ 	├── 📄 go.mod
+ 	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+👇 抜粋  
+
+```go
+// ...略...
+
+
+	// * 以下を追加する
+	} else if name == "vol2" {
+
+		http.HandleFunc("/view/", ViewHandler)
+		log.Fatal(http.ListenAndServe(":8080", nil))
+
+		// この上に分岐を挟んでいく
+```
+
+## Step [O1o1o0g9o9o0] ビルド
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+Input:  
+
+```shell
+go run . vol1
 ```
 
 # 参考にした記事

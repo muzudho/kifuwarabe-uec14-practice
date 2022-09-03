@@ -5,6 +5,8 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
+	"net/http"
 	"os"
 )
 
@@ -37,6 +39,11 @@ func main() {
 		p1.save()
 		p2, _ := loadPage("TestPage")
 		fmt.Println(string(p2.Body))
+
+	} else if name == "vol2" {
+
+		http.HandleFunc("/view/", ViewHandler)
+		log.Fatal(http.ListenAndServe(":8080", nil))
 
 		// この上に分岐を挟んでいく
 
