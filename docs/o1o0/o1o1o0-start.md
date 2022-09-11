@@ -2709,8 +2709,6 @@ Output:
 
 # 参考にした記事
 
-📖 [Go [O1o1o0] 目指せ！第１４回ＵＥＣ杯コンピューター囲碁大会](https://qiita.com/muzudho1/items/cea62be01f7418bbf150) - この記事  
-
 ## Go言語
 
 ### モジュール
