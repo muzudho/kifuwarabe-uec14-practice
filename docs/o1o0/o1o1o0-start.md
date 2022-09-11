@@ -2503,22 +2503,60 @@ go get -u go.uber.org/zap
 package main
 
 import (
+	"log"
+	"os"
 	"time"
 
 	"go.uber.org/zap"
+	"go.uber.org/zap/zapcore"
 )
 
+func createLogger(logFile *os.File) *zap.Logger {
+	// 設定
+	var config = zap.NewProductionEncoderConfig()
+	// config.EncodeTime = zapcore.ISO8601TimeEncoder
+
+	// コア
+	var core = zapcore.NewTee(
+		zapcore.NewCore(
+			zapcore.NewJSONEncoder(config), // JSON形式
+			zapcore.Lock(os.Stderr),        // 出力先は標準エラー
+			zapcore.DebugLevel),            // ログレベル
+		zapcore.NewCore(
+			zapcore.NewJSONEncoder(config), // JSON形式
+			zapcore.AddSync(logFile),       // 出力先はログファイル
+			zapcore.DebugLevel),            // ログレベル
+	)
+
+	// ロガーのビルド
+	return zap.New(core, zap.AddCaller(), zap.AddStacktrace(zapcore.ErrorLevel))
+}
+
+// func createLogger2(logFile *os.File) *zap.Logger {
+// 	// ロガー作成
+// 	// logger, _ := zap.NewDevelopment() // 開発用
+// 	logger, _ := zap.NewProduction() // 製品用
+// 	// ロガー破棄時にバッファーをフラッシュする
+// 	defer logger.Sync() // flushes buffer, if any
+
+// 	return logger
+// }
+
 func main() {
-	// File
-	logFile, _ := os.OpenFile("log.txt", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
-	defer logFile.Close()
-	log.SetOutput(logFile)
+	// ファイル
+	logFile, _ := os.OpenFile("example.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	defer logFile.Close() // ログファイル使用済み時にファイルを閉じる
+
+	// `log` インターフェースを直接使うなら
+	log.SetOutput(logFile) // ロガーにログファイルを紐づけ
 	log.Println("Hello, world!")
-	
+
+	// カスタマイズしたロガーを使うなら
+	var logger = createLogger(logFile)
+
 	// Run
-	var logger, _ = zap.NewProduction()
-	defer logger.Sync() // flushes buffer, if any
-	var sugar = logger.Sugar()
+	// 糖衣構文のインターフェースを取得
+	sugar := logger.Sugar()
 	var url = "http://tic.warabenture.com"
 	sugar.Infow("failed to fetch URL",
 		// Structured context as loosely typed key-value pairs.
@@ -2542,6 +2580,42 @@ Input:
 go run .
 ```
 
+Output:  
+
+```plaintext
+{"level":"info","ts":"2022-09-11T13:06:18.144+0900","caller":"logging/main.go:61","msg":"failed to fetch URL","url":"http://tic.warabenture.com","attempt":3,"backoff":1}
+{"level":"info","ts":"2022-09-11T13:06:18.145+0900","caller":"logging/main.go:67","msg":"Failed to fetch URL: http://tic.warabenture.com"}
+```
+
+👇 以下のファイルが自動生成された  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 fuzz
+	├── 📂 generics
+	├── 📂 gowiki
+	├── 📂 greetings
+	├── 📂 logging
+👉	│	├── 📄 example.log
+	│	├── 📄 go.mod
+	│	└── 📄 main.go
+	├── 📂 web-service-gin
+  	├── 📄 .gitignore
+  	├── 📄 go.mod
+  	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+```plaintext
+2022/09/11 13:06:18 Hello, world!
+{"level":"info","ts":"2022-09-11T13:06:18.144+0900","caller":"logging/main.go:61","msg":"failed to fetch URL","url":"http://tic.warabenture.com","attempt":3,"backoff":1}
+{"level":"info","ts":"2022-09-11T13:06:18.145+0900","caller":"logging/main.go:67","msg":"Failed to fetch URL: http://tic.warabenture.com"}
+```
+
+* 作成されるログファイルは JSON形式ではない。 ワンライナーのJSONが複数行並ぶ
+
 # 次の記事
 
 📖 [Go [O1o1o0] 目指せ！第１４回ＵＥＣ杯コンピューター囲碁大会＜本編＞](https://qiita.com/muzudho1/items/744f6051954525878b84)  
@@ -2563,8 +2637,15 @@ go run .
 
 ### ロギング
 
+📖 [How to log to stdout or stderr based on log level using uber-go/zap?](https://stackoverflow.com/questions/68472667/how-to-log-to-stdout-or-stderr-based-on-log-level-using-uber-go-zap)  
 📖 [5 structured logging packages for Go](https://blog.logrocket.com/5-structured-logging-packages-for-go/)  
 📖 [Structured Logging in Golang with Zap – Blazing Fast Logger](https://codewithmukesh.com/blog/structured-logging-in-golang-with-zap/)  
+📖 [【Go】ログライブラリzapを使う時はglobal loggerが便利！](https://qiita.com/yagi_eng/items/2957ef04cebcdeaae1d6)  
+📖 [GolangのLogger「zap」の最低限の設定方法](https://tomokazu-kozuma.com/minimum-setting-method-of-golangs-logger-zap/)  
+📖 [zapでログレベルでログの出力先を振り分ける方法](https://qiita.com/emonuh/items/cb3a730979dba7d76920)  
+📖 [golangの高速な構造化ログライブラリ「zap」の使い方](https://qiita.com/emonuh/items/28dbee9bf2fe51d28153)  
+📖 [GoのロギングライブラリzapのTips](https://christina04.hatenablog.com/entry/golang-zap-tips)  
+📖 [golang zap v1.0.0 でログの日付をJSTで表示する方法](https://qiita.com/fuku2014/items/c6501c187c8161336485)  
 
 ## Go言語と Visual Studio Code
 
