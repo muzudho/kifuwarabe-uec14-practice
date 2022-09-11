@@ -175,13 +175,13 @@ go 1.19
 例えば冒頭に追加  
 
 ```plaintext
-# * ここから、以下を追加
-# (^q^)
+# この下に kifuwarabe-uec14 でリポジトリにコミットしないものを追加する
+# ---------------------------------------------------------------
 
 go.work
-# * ここまで
 
-
+# この上に kifuwarabe-uec14 でリポジトリにコミットしないものを追加する
+# ---------------------------------------------------------------
 # ...略...
 ```
 
@@ -2475,6 +2475,40 @@ Input:
 go get -u go.uber.org/zap
 ```
 
+## Step [O1o1o0g10o5o_2o0] 設定 - .gitignore ファイル
+
+👇 以下の既存ファイルを編集してほしい  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 fuzz
+	├── 📂 generics
+	├── 📂 gowiki
+	├── 📂 greetings
+	├── 📂 logging
+	│	├── 📄 go.mod
+	│	└── 📄 main.go
+	├── 📂 web-service-gin
+👉 	├── 📄 .gitignore
+  	├── 📄 go.mod
+  	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+```plaintext
+# この下に kifuwarabe-uec14 でリポジトリにコミットしないものを追加する
+# ---------------------------------------------------------------
+# ...略...
+
+*.log
+
+# この上に kifuwarabe-uec14 でリポジトリにコミットしないものを追加する
+# ---------------------------------------------------------------
+# ...略...
+```
+
 ## Step [O1o1o0g10o5o0] メインプログラム作成
 
 👇 以下のファイルを新規作成してほしい  
@@ -2511,17 +2545,51 @@ import (
 	"go.uber.org/zap/zapcore"
 )
 
-func createLogger(logFile *os.File) *zap.Logger {
-	// 設定
-	var config = zap.NewProductionEncoderConfig()
-	// config.EncodeTime = zapcore.ISO8601TimeEncoder
+// createLoggerForConsole - ロガー作成，コンソール用
+func createLoggerForConsole(logFile *os.File) *zap.Logger {
+	// 設定，コンソール用
+	var config1 = zapcore.EncoderConfig{
+		MessageKey: "message",
+
+		// LevelKey:    "level",
+		// EncodeLevel: zapcore.CapitalLevelEncoder,
+
+		TimeKey:    "time",
+		EncodeTime: zapcore.ISO8601TimeEncoder, // 日本時間のタイムスタンプ
+
+		// CallerKey:    "caller",
+		// EncodeCaller: zapcore.ShortCallerEncoder,
+	}
+	// config1.EncodeTime = zapcore.ISO8601TimeEncoder // 日本時間のタイムスタンプ
+
+	// 設定，ファイル用
+	var config2 = zap.NewProductionEncoderConfig()
+	config2.EncodeTime = zapcore.ISO8601TimeEncoder // 日本時間のタイムスタンプ
 
 	// コア
 	var core = zapcore.NewTee(
 		zapcore.NewCore(
-			zapcore.NewJSONEncoder(config), // JSON形式
-			zapcore.Lock(os.Stderr),        // 出力先は標準エラー
-			zapcore.DebugLevel),            // ログレベル
+			zapcore.NewConsoleEncoder(config1), // コンソール形式
+			zapcore.Lock(os.Stderr),            // 出力先は標準エラー
+			zapcore.DebugLevel),                // ログレベル
+		zapcore.NewCore(
+			zapcore.NewConsoleEncoder(config2), // コンソール形式
+			zapcore.AddSync(logFile),           // 出力先はログファイル
+			zapcore.DebugLevel),                // ログレベル
+	)
+
+	// ロガーのビルド
+	return zap.New(core, zap.AddCaller(), zap.AddStacktrace(zapcore.ErrorLevel))
+}
+
+// createLoggerForJson - ロガー作成，複数行JSON形式
+func createLoggerAsJson(logFile *os.File) *zap.Logger {
+	// 設定
+	var config = zap.NewProductionEncoderConfig()
+	config.EncodeTime = zapcore.ISO8601TimeEncoder // 日本時間のタイムスタンプ
+
+	// コア
+	var core = zapcore.NewTee(
 		zapcore.NewCore(
 			zapcore.NewJSONEncoder(config), // JSON形式
 			zapcore.AddSync(logFile),       // 出力先はログファイル
@@ -2543,34 +2611,40 @@ func createLogger(logFile *os.File) *zap.Logger {
 // }
 
 func main() {
-	// ファイル
-	logFile, _ := os.OpenFile("example.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
-	defer logFile.Close() // ログファイル使用済み時にファイルを閉じる
-
+	// ファイル，基本
+	basicLogFile, _ := os.OpenFile("example-basic.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	defer basicLogFile.Close() // ログファイル使用済み時にファイルを閉じる
 	// `log` インターフェースを直接使うなら
-	log.SetOutput(logFile) // ロガーにログファイルを紐づけ
+	log.SetOutput(basicLogFile) // ロガーにログファイルを紐づけ
 	log.Println("Hello, world!")
 
+	// ファイル，コンソール用
+	logcFile, _ := os.OpenFile("example.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	defer logcFile.Close() // ログファイル使用済み時にファイルを閉じる
+
+	// ファイル，複数行JSON形式
+	logjFile, _ := os.OpenFile("example-json.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	defer logcFile.Close() // ログファイル使用済み時にファイルを閉じる
+
 	// カスタマイズしたロガーを使うなら
-	var logger = createLogger(logFile)
+	var logc = createLoggerForConsole(logcFile).Sugar()
+	var logj = createLoggerAsJson(logjFile).Sugar()
 
 	// Run
-	// 糖衣構文のインターフェースを取得
-	sugar := logger.Sugar()
 	var url = "http://tic.warabenture.com"
-	sugar.Infow("failed to fetch URL",
+	logc.Infof("Failed to fetch URL: %s", url)
+	logj.Infow("failed to fetch URL",
 		// Structured context as loosely typed key-value pairs.
 		"url", url,
 		"attempt", 3,
 		"backoff", time.Second,
 	)
-	sugar.Infof("Failed to fetch URL: %s", url)
 }
 
 // EOF [O1o1o0g10o5o0]
 ```
 
-### Step [O1o1o0g10o6o0] 実行
+## Step [O1o1o0g10o6o0] 実行
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -2583,8 +2657,7 @@ go run .
 Output:  
 
 ```plaintext
-{"level":"info","ts":"2022-09-11T13:06:18.144+0900","caller":"logging/main.go:61","msg":"failed to fetch URL","url":"http://tic.warabenture.com","attempt":3,"backoff":1}
-{"level":"info","ts":"2022-09-11T13:06:18.145+0900","caller":"logging/main.go:67","msg":"Failed to fetch URL: http://tic.warabenture.com"}
+2022-09-11T14:36:31.819+0900    Failed to fetch URL: http://tic.warabenture.com
 ```
 
 👇 以下のファイルが自動生成された  
@@ -2596,6 +2669,8 @@ Output:
 	├── 📂 gowiki
 	├── 📂 greetings
 	├── 📂 logging
+👉	│	├── 📄 example-basic.log
+👉	│	├── 📄 example-json.log
 👉	│	├── 📄 example.log
 	│	├── 📄 go.mod
 	│	└── 📄 main.go
@@ -2608,10 +2683,22 @@ Output:
   	└── 📄 main.go
 ```
 
+👇 📄 `example-basic.log`  
+
 ```plaintext
-2022/09/11 13:06:18 Hello, world!
-{"level":"info","ts":"2022-09-11T13:06:18.144+0900","caller":"logging/main.go:61","msg":"failed to fetch URL","url":"http://tic.warabenture.com","attempt":3,"backoff":1}
-{"level":"info","ts":"2022-09-11T13:06:18.145+0900","caller":"logging/main.go:67","msg":"Failed to fetch URL: http://tic.warabenture.com"}
+2022/09/11 14:30:26 Hello, world!
+```
+
+👇 📄 `example-json.log`  
+
+```plaintext
+{"level":"info","ts":"2022-09-11T14:30:26.223+0900","caller":"logging/main.go:93","msg":"failed to fetch URL","url":"http://tic.warabenture.com","attempt":3,"backoff":1}
+```
+
+👇 📄 `example.log`  
+
+```plaintext
+2022-09-11T14:30:26.222+0900	info	logging/main.go:92	Failed to fetch URL: http://tic.warabenture.com
 ```
 
 * 作成されるログファイルは JSON形式ではない。 ワンライナーのJSONが複数行並ぶ
@@ -2646,6 +2733,7 @@ Output:
 📖 [golangの高速な構造化ログライブラリ「zap」の使い方](https://qiita.com/emonuh/items/28dbee9bf2fe51d28153)  
 📖 [GoのロギングライブラリzapのTips](https://christina04.hatenablog.com/entry/golang-zap-tips)  
 📖 [golang zap v1.0.0 でログの日付をJSTで表示する方法](https://qiita.com/fuku2014/items/c6501c187c8161336485)  
+📖 [Using Zap - Creating custom loggers](https://blog.sandipb.net/2018/05/03/using-zap-creating-custom-loggers/)  
 
 ## Go言語と Visual Studio Code
 

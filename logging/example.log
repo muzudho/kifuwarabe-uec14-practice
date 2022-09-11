@@ -1,3 +1,2 @@
-2022/09/11 13:06:18 Hello, world!
-{"level":"info","ts":"2022-09-11T13:06:18.144+0900","caller":"logging/main.go:61","msg":"failed to fetch URL","url":"http://tic.warabenture.com","attempt":3,"backoff":1}
-{"level":"info","ts":"2022-09-11T13:06:18.145+0900","caller":"logging/main.go:67","msg":"Failed to fetch URL: http://tic.warabenture.com"}
+2022-09-11T14:30:26.222+0900	info	logging/main.go:92	Failed to fetch URL: http://tic.warabenture.com
+2022-09-11T14:36:31.819+0900	info	logging/main.go:101	Failed to fetch URL: http://tic.warabenture.com
