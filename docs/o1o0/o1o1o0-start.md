@@ -1691,6 +1691,7 @@ ok      github.com/muzudho/kifuwarabe-uec14-practice/fuzz       0.219s
 	├── 📂 generics
 	│	├── 📄 go.mod
 	│	└── 📄 main.go
+👉	├── 📂 gowiki
 	├── 📂 greetings
 	│	├── 📂 japanese
 	│	├── 📄 go.mod
@@ -1699,7 +1700,6 @@ ok      github.com/muzudho/kifuwarabe-uec14-practice/fuzz       0.219s
 	│	├── 📄 go.mod
 	│	├── 📄 go.sum
  	│	└── 📄 main.go
-👉	├── 📂 gowiki
   	├── 📄 .gitignore
  	├── 📄 go.mod
  	├── 📄 go.sum
@@ -1749,6 +1749,8 @@ go mod init github.com/muzudho/kifuwarabe-uec14-practice/gowiki
 	├── 📂 generics
 	│	├── 📄 go.mod
 	│	└── 📄 main.go
+	├── 📂 gowiki
+👉	│	└── 📄 go.mod
 	├── 📂 greetings
 	│	├── 📂 japanese
 	│	├── 📄 go.mod
@@ -1757,8 +1759,6 @@ go mod init github.com/muzudho/kifuwarabe-uec14-practice/gowiki
 	│	├── 📄 go.mod
 	│	├── 📄 go.sum
  	│	└── 📄 main.go
-	├── 📂 gowiki
-👉	│	└── 📄 go.mod
   	├── 📄 .gitignore
  	├── 📄 go.mod
  	├── 📄 go.sum
@@ -1792,6 +1792,8 @@ go work use .
 	├── 📂 generics
 	│	├── 📄 go.mod
 	│	└── 📄 main.go
+	├── 📂 gowiki
+	│	└── 📄 go.mod
 	├── 📂 greetings
 	│	├── 📂 japanese
 	│	├── 📄 go.mod
@@ -1800,8 +1802,6 @@ go work use .
 	│	├── 📄 go.mod
 	│	├── 📄 go.sum
  	│	└── 📄 main.go
-	├── 📂 gowiki
-	│	└── 📄 go.mod
   	├── 📄 .gitignore
  	├── 📄 go.mod
  	├── 📄 go.sum
@@ -1845,6 +1845,9 @@ use (
 	├── 📂 generics
 	│	├── 📄 go.mod
 	│	└── 📄 main.go
+	├── 📂 gowiki
+	│	├── 📄 go.mod
+👉	│	└── 📄 wiki.go
 	├── 📂 greetings
 	│	├── 📂 japanese
 	│	├── 📄 go.mod
@@ -1853,9 +1856,6 @@ use (
 	│	├── 📄 go.mod
 	│	├── 📄 go.sum
  	│	└── 📄 main.go
-	├── 📂 gowiki
-	│	├── 📄 go.mod
-👉	│	└── 📄 wiki.go
   	├── 📄 .gitignore
  	├── 📄 go.mod
  	├── 📄 go.sum
@@ -1942,6 +1942,10 @@ This is a sample Page.
 	├── 📂 generics
 	│	├── 📄 go.mod
 	│	└── 📄 main.go
+	├── 📂 gowiki
+	│	├── 📄 go.mod
+👉	│	├── 📄 TestPage.txt
+	│	└── 📄 wiki.go
 	├── 📂 greetings
 	│	├── 📂 japanese
 	│	├── 📄 go.mod
@@ -1950,10 +1954,6 @@ This is a sample Page.
 	│	├── 📄 go.mod
 	│	├── 📄 go.sum
  	│	└── 📄 main.go
-	├── 📂 gowiki
-	│	├── 📄 go.mod
-👉	│	├── 📄 TestPage.txt
-	│	└── 📄 wiki.go
   	├── 📄 .gitignore
  	├── 📄 go.mod
  	├── 📄 go.sum
@@ -1975,6 +1975,11 @@ This is a sample Page.
 	├── 📂 generics
 	│	├── 📄 go.mod
 	│	└── 📄 main.go
+	├── 📂 gowiki
+	│	├── 📄 go.mod
+👉	│	├── 📄 simple.go
+	│	├── 📄 TestPage.txt
+	│	└── 📄 wiki.go
 	├── 📂 greetings
 	│	├── 📂 japanese
 	│	├── 📄 go.mod
@@ -1983,11 +1988,6 @@ This is a sample Page.
 	│	├── 📄 go.mod
 	│	├── 📄 go.sum
  	│	└── 📄 main.go
-	├── 📂 gowiki
-	│	├── 📄 go.mod
-👉	│	├── 📄 simple.go
-	│	├── 📄 TestPage.txt
-	│	└── 📄 wiki.go
   	├── 📄 .gitignore
  	├── 📄 go.mod
  	├── 📄 go.sum
@@ -2029,6 +2029,11 @@ func SimpleHandler(w http.ResponseWriter, r *http.Request) {
 	├── 📂 generics
 	│	├── 📄 go.mod
 	│	└── 📄 main.go
+	├── 📂 gowiki
+	│	├── 📄 go.mod
+	│	├── 📄 simple.go
+	│	├── 📄 TestPage.txt
+👉	│	└── 📄 wiki.go
 	├── 📂 greetings
 	│	├── 📂 japanese
 	│	├── 📄 go.mod
@@ -2037,11 +2042,6 @@ func SimpleHandler(w http.ResponseWriter, r *http.Request) {
 	│	├── 📄 go.mod
 	│	├── 📄 go.sum
  	│	└── 📄 main.go
-	├── 📂 gowiki
-	│	├── 📄 go.mod
-	│	├── 📄 simple.go
-	│	├── 📄 TestPage.txt
-👉	│	└── 📄 wiki.go
   	├── 📄 .gitignore
  	├── 📄 go.mod
  	├── 📄 go.sum
@@ -2111,6 +2111,12 @@ Hi there, I love monkeys!
 	├── 📂 generics
 	│	├── 📄 go.mod
 	│	└── 📄 main.go
+	├── 📂 gowiki
+	│	├── 📄 go.mod
+	│	├── 📄 simple.go
+	│	├── 📄 TestPage.txt
+👉	│	├── 📄 view.go
+	│	└── 📄 wiki.go
 	├── 📂 greetings
 	│	├── 📂 japanese
 	│	├── 📄 go.mod
@@ -2119,12 +2125,6 @@ Hi there, I love monkeys!
 	│	├── 📄 go.mod
 	│	├── 📄 go.sum
  	│	└── 📄 main.go
-	├── 📂 gowiki
-	│	├── 📄 go.mod
-	│	├── 📄 simple.go
-	│	├── 📄 TestPage.txt
-👉	│	├── 📄 view.go
-	│	└── 📄 wiki.go
   	├── 📄 .gitignore
  	├── 📄 go.mod
  	├── 📄 go.sum
@@ -2168,6 +2168,12 @@ func ViewHandler(w http.ResponseWriter, r *http.Request) {
 	├── 📂 generics
 	│	├── 📄 go.mod
 	│	└── 📄 main.go
+	├── 📂 gowiki
+	│	├── 📄 go.mod
+	│	├── 📄 simple.go
+	│	├── 📄 TestPage.txt
+	│	├── 📄 view.go
+👉	│	└── 📄 wiki.go
 	├── 📂 greetings
 	│	├── 📂 japanese
 	│	├── 📄 go.mod
@@ -2176,12 +2182,6 @@ func ViewHandler(w http.ResponseWriter, r *http.Request) {
 	│	├── 📄 go.mod
 	│	├── 📄 go.sum
  	│	└── 📄 main.go
-	├── 📂 gowiki
-	│	├── 📄 go.mod
-	│	├── 📄 simple.go
-	│	├── 📄 TestPage.txt
-	│	├── 📄 view.go
-👉	│	└── 📄 wiki.go
   	├── 📄 .gitignore
  	├── 📄 go.mod
  	├── 📄 go.sum
@@ -2217,6 +2217,13 @@ func ViewHandler(w http.ResponseWriter, r *http.Request) {
 	├── 📂 generics
 	│	├── 📄 go.mod
 	│	└── 📄 main.go
+	├── 📂 gowiki
+	│	├── 📄 go.mod
+	│	├── 📄 simple.go
+👉	│	├── 📄 test.txt
+	│	├── 📄 TestPage.txt
+	│	├── 📄 view.go
+	│	└── 📄 wiki.go
 	├── 📂 greetings
 	│	├── 📂 japanese
 	│	├── 📄 go.mod
@@ -2225,13 +2232,6 @@ func ViewHandler(w http.ResponseWriter, r *http.Request) {
 	│	├── 📄 go.mod
 	│	├── 📄 go.sum
  	│	└── 📄 main.go
-	├── 📂 gowiki
-	│	├── 📄 go.mod
-	│	├── 📄 simple.go
-👉	│	├── 📄 test.txt
-	│	├── 📄 TestPage.txt
-	│	├── 📄 view.go
-	│	└── 📄 wiki.go
   	├── 📄 .gitignore
  	├── 📄 go.mod
  	├── 📄 go.sum
@@ -2244,7 +2244,7 @@ func ViewHandler(w http.ResponseWriter, r *http.Request) {
 Hello world
 ```
 
-## Step [O1o1o0g9o9o0] ビルド
+### Step [O1o1o0g9o9o0] ビルド
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -2267,6 +2267,13 @@ go build .
 	├── 📂 generics
 	│	├── 📄 go.mod
 	│	└── 📄 main.go
+	├── 📂 gowiki
+	│	├── 📄 go.mod
+👉	│	├── 📄 gowiki.exe
+	│	├── 📄 simple.go
+	│	├── 📄 TestPage.txt
+	│	├── 📄 view.go
+	│	└── 📄 wiki.go
 	├── 📂 greetings
 	│	├── 📂 japanese
 	│	├── 📄 go.mod
@@ -2275,13 +2282,6 @@ go build .
 	│	├── 📄 go.mod
 	│	├── 📄 go.sum
  	│	└── 📄 main.go
-	├── 📂 gowiki
-	│	├── 📄 go.mod
-👉	│	├── 📄 gowiki.exe
-	│	├── 📄 simple.go
-	│	├── 📄 TestPage.txt
-	│	├── 📄 view.go
-	│	└── 📄 wiki.go
   	├── 📄 .gitignore
  	├── 📄 go.mod
  	├── 📄 go.sum
@@ -2290,7 +2290,7 @@ go build .
   	└── 📄 main.go
 ```
 
-## Step [O1o1o0g9o10o0] 実行
+### Step [O1o1o0g9o10o0] 実行
 
 👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
 
@@ -2301,7 +2301,7 @@ Input:
 gowiki.exe vol3
 ```
 
-## Step [O1o1o0g9o11o0] Webアクセス
+### Step [O1o1o0g9o11o0] Webアクセス
 
 👇 ブラウザを開いてアクセスしてほしい  
 
@@ -2314,6 +2314,237 @@ test
 
 Hello world
 ```
+
+# Step [O1o1o0g10o0] ロギング
+
+👇 公式のサンプルを一旦離れて　ロギングを練習する  
+
+📖 [Zap](https://github.com/uber-go/zap)  
+
+## Step [O1o1o0g10o1o0] フォルダー作成
+
+👇 以下のフォルダーを新規作成してほしい  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 fuzz
+	├── 📂 generics
+	├── 📂 gowiki
+	├── 📂 greetings
+👉	├── 📂 logging
+	├── 📂 web-service-gin
+  	├── 📄 .gitignore
+ 	├── 📄 go.mod
+ 	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+## Step [O1o1o0g10o2o0] カレントディレクトリーを移動
+
+👇 コマンドラインのプロンプトを見てほしい  
+
+```shell
+C:\Users\むずでょ\go\src\github.com\muzudho\kifuwarabe-uec14-practice>
+# ------------------------------------------------------------------
+# 11
+# -------------------------------------------------------------------
+# 10
+#
+# 10. （`C:` も含めて）これがプロンプト
+# 11. カレントディレクトリー
+```
+
+👇 現在のカレントディレクトリーが以下とする  
+
+```plaintext
+👉	📂 kifuwarabe-uec14-practice
+ 	└── 📂 logging
+```
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
+cd logging
+```
+
+👇 コマンドラインのプロンプトを見てほしい  
+
+```shell
+C:\Users\むずでょ\go\src\github.com\muzudho\kifuwarabe-uec14-practice\logging>
+```
+
+👇 カレントディレクトリーは移動した  
+
+```plaintext
+	📂 kifuwarabe-uec14-practice
+👉	└── 📂 logging
+```
+
+## Step [O1o1o0g10o3o0] Goモジュールの作成
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+Input:  
+
+```shell
+go mod init github.com/muzudho/kifuwarabe-uec14-practice/logging
+```
+
+Output:  
+
+```plaintext
+go: creating new go.mod: module github.com/muzudho/kifuwarabe-uec14-practice/logging
+```
+
+👇 以下のファイルが自動生成された  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 fuzz
+	├── 📂 generics
+	├── 📂 gowiki
+	├── 📂 greetings
+	├── 📂 logging
+👉	│	└── 📄 go.mod
+	├── 📂 web-service-gin
+  	├── 📄 .gitignore
+ 	├── 📄 go.mod
+ 	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+```plaintext
+module github.com/muzudho/kifuwarabe-uec14-practice/logging
+
+go 1.19
+```
+
+## Step [O1o1o0g10o4o0] ワークスペースズ モードへの登録
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+```shell
+go work use .
+```
+
+👇 これにより、以下の既存ファイルが自動で編集された  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 fuzz
+	├── 📂 generics
+	├── 📂 gowiki
+	├── 📂 greetings
+	├── 📂 logging
+	│	└── 📄 go.mod
+	├── 📂 web-service-gin
+  	├── 📄 .gitignore
+  	├── 📄 go.mod
+  	├── 📄 go.sum
+👉	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+```go
+// ...略...
+
+
+use (
+// ...略...
+
+
+	./logging
+
+
+// ...略...
+)
+```
+
+## Step [O1o1o0g10o5o_1o0] インストール
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+Input:  
+
+```shell
+go get -u go.uber.org/zap
+```
+
+## Step [O1o1o0g10o5o0] メインプログラム作成
+
+👇 以下のファイルを新規作成してほしい  
+
+```plaintext
+  	📂 kifuwarabe-uec14-practice
+	├── 📂 fuzz
+	├── 📂 generics
+	├── 📂 gowiki
+	├── 📂 greetings
+	├── 📂 logging
+	│	├── 📄 go.mod
+👉	│	└── 📄 main.go
+	├── 📂 web-service-gin
+  	├── 📄 .gitignore
+  	├── 📄 go.mod
+  	├── 📄 go.sum
+	├── 📄 go.work
+	├── 📄 go.work.sum
+  	└── 📄 main.go
+```
+
+```go
+// BOF [O1o1o0g10o5o0]
+
+package main
+
+import (
+	"time"
+
+	"go.uber.org/zap"
+)
+
+func main() {
+	// File
+	logFile, _ := os.OpenFile("log.txt", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+	defer logFile.Close()
+	log.SetOutput(logFile)
+	log.Println("Hello, world!")
+	
+	// Run
+	var logger, _ = zap.NewProduction()
+	defer logger.Sync() // flushes buffer, if any
+	var sugar = logger.Sugar()
+	var url = "http://tic.warabenture.com"
+	sugar.Infow("failed to fetch URL",
+		// Structured context as loosely typed key-value pairs.
+		"url", url,
+		"attempt", 3,
+		"backoff", time.Second,
+	)
+	sugar.Infof("Failed to fetch URL: %s", url)
+}
+
+// EOF [O1o1o0g10o5o0]
+```
+
+### Step [O1o1o0g10o6o0] 実行
+
+👇 以下のコマンドをコピーして、ターミナルに貼り付けてほしい  
+
+Input:  
+
+```shell
+go run .
+```
+
+# 次の記事
+
+📖 [Go [O1o1o0] 目指せ！第１４回ＵＥＣ杯コンピューター囲碁大会＜本編＞](https://qiita.com/muzudho1/items/744f6051954525878b84)  
 
 # 参考にした記事
 
@@ -2329,6 +2560,11 @@ Hello world
 
 📖 [Setting up your workspace](https://github.com/golang/tools/blob/master/gopls/doc/workspace.md)  
 📖 [Go 1.18集中連載 Workspacesモードを試してみた](https://future-architect.github.io/articles/20220216a/)  
+
+### ロギング
+
+📖 [5 structured logging packages for Go](https://blog.logrocket.com/5-structured-logging-packages-for-go/)  
+📖 [Structured Logging in Golang with Zap – Blazing Fast Logger](https://codewithmukesh.com/blog/structured-logging-in-golang-with-zap/)  
 
 ## Go言語と Visual Studio Code
 
